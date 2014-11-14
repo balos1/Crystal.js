@@ -1,6 +1,6 @@
 Chivalry.js
 ---
-##### Version 0.1
+##### Version 0.0.1
 ##### See it in action at http://functioncreate.com
 
 # A lightweight Javascript inline/live form validator
