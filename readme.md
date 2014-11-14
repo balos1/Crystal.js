@@ -39,7 +39,7 @@ Chivalry.js is easily modifiable and easily extendable. See the section "Chivalr
     + Here is an example:
             <input type="text" id="chivalry-someName" name="someName" oninput="inlineValidate(fields.someName)" class="required">
 5. Add CSS to indicate when a field is invalid. 
-        .invalid { border: 2px solid #f15b22 !important; }
+    `.invalid { border: 2px solid #f15b22 !important; }`
 6. **If desired**, add some sort of HTML element to alert a user that their input was invalid, or that a message was sent successfully when the submit button is clicked. Chivalry.js will show the success alert if the message is sent successfully and if you add the class `alert-success` to the element. It will also show the invalid alert if you add the class `alert-invalid` to the element. 
 7. **Always** use server side validation as well!
 
