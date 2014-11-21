@@ -99,7 +99,6 @@ function ajaxSubmitForm(formID) {
 				var r = new XMLHttpRequest();
 				r.open('POST', '/', true);
 				r.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-				r.responseType = 'json';
 				r.onreadystatechange = function () {
 					if(r.readyState != 4 ||  r.status != 200){
 						return;
