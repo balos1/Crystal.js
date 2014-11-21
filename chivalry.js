@@ -48,7 +48,7 @@ fields.message  = new field( /^(?!\s*$).+/ , document.getElementById('chivalry-m
 
 // A default object for a hidden spamecheck field. 
 // Returns false if field is anything but empty.
-fields.spamcheck = new field( /^(?!\s*$).+/ , document.getElementById('chivalry-spamCheck'))
+fields.spamcheck = new field( /^(?!\s*$).+/ , document.getElementById('chivalry-spamcheck'))
 fields.spamcheck = {
 	isValid: function() {
 		if (!this.regex(this.domOBJ.value)) {
@@ -77,38 +77,55 @@ function inlineValidate(field) {
 }
 
 function ajaxSubmitForm(formID) {
-	$(formID).submit(function(e) {
-		e.preventDefault();
+	document.getElementById(formID).addEventListener('submit',
+		function(e) {
+			var alertSuccess = document.querySelectorAll(".alert-success");
+			var alertInvalid = document.querySelectorAll(".alert-invalid");
+			var invalid = document.querySelectorAll(".invalid");
+			var required = document.querySelectorAll(".required");
 
-		var valid = true;
-		for(var field in fields) {
-			if(fields[field].lastState === false) {
-				valid = false;
-			} 
-		}
+			e.preventDefault();
 
-		if(valid === true) {
-			var form = $(formID).serialize();
+			var valid = true;
+			for(var field in fields) {
+				if(fields[field].lastState === false) {
+					valid = false;
+				} 
+			}
 
-			$.ajax({
-				url: '/',
-				type: 'POST',
-				data: form,
-				dataType: 'json',
-				error: function(xhr,status,errorThrown) {
-					alert(status + ': ');
-				},
-				success: function(data) {
-					$('.alert-invalid').hide();
-					$('.invalid').removeClass('invalid');
-					$('.alert-success').show();
+			if(valid === true) {
+				var form = serialize(document.getElementById(formID));
+
+				var r = new XMLHttpRequest();
+				r.open('POST', '/', true);
+				r.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+				r.responseType = 'json';
+				r.onreadystatechange = function () {
+					if(r.readyState != 4 ||  r.status != 200){
+						return;
+					}
+					else {
+						for(var i = 0; i < invalid.length; i++){
+							invalid[i].className.replace( /(?:^|\s)invalid(?!\S)/g , '');		
+						}	
+						for(var i = 0; i < alertInvalid.length; i++){
+							alertInvalid[i].style.display = 'none';
+						}
+						for(var i = 0; i < alertSuccess.length; i++){
+							alertSuccess[i].style.display = 'block';
+						}
+					}
 				}
-			})	
-		}
-		else {
-			$('.alert-invalid').show();
-			$('.required').addClass('invalid');
-		}
+				r.send(form);
+			}
+			else {
+				for(var i = 0; i < alertInvalid.length; i++){
+					alertInvalid[i].style.display = 'block';
+				}
+				for(var i = 0; i < required.length; i++){
+					required[i].className += " invalid";
+				}
+			}
 	});
 }
 
@@ -125,7 +142,6 @@ function standardSubmitForm(formID) {
 			}
 		});
 }
-
 
 
 
