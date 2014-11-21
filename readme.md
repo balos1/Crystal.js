@@ -19,9 +19,13 @@ crystal.js is easily modifiable and easily extendable. See the section "crystal.
 
 # Getting started
 1. Download or clone crystal.js
-2. Include crystal.js and form-serialize. at the bottom of your page.
-        <script type='text/javascript', src='http://form-serialize.googlecode.com/svn/trunk/serialize-0.2.min.js'
-        <script type='text/javascript', src='/path/to/crystal.js'></script>
+2. Include crystal.js and form-serialize at the bottom of your page.
+        
+```html       
+<script type='text/javascript', src='http://form-serialize.googlecode.com/svn/trunk/serialize-0.2.min.js'</script>
+<script type='text/javascript', src='/path/to/crystal.js'></script>
+```
+
 3. Right below the crystal.js include mentioned above, include this activation snippet
 
 ```html
