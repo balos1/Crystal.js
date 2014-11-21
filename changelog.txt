@@ -1,6 +1,9 @@
 Changelog
+----11-12-14 0.1.0----
+-Minor change, no version incrementation
+    - Removed expected repsonse type from AJAX request
 
-----11-21-14----
+----11-21-14 0.1.0----
 - Name Changed to crystal.js from chivlary.js
 - Version to 0.1.0 to signify major change
 - No Jquery required anymore, pure JS
