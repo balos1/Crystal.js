@@ -9,6 +9,7 @@ crystal.js
 
 # Easy use, Built-In Validation Functions
 crystal.js has four of the most common fields covered with prebuilt functions.
+
 + Name (checks if name is not empty and without digits)
 + Email (checks if email adheres to the RFC2822 standard)
 + Message (check if empty)
@@ -25,7 +26,6 @@ crystal.js is easily modifiable and easily extendable. See the section "crystal.
 <script type='text/javascript', src='http://form-serialize.googlecode.com/svn/trunk/serialize-0.2.min.js'</script>
 <script type='text/javascript', src='/path/to/crystal.js'></script>
 ```
-
 3. Right below the crystal.js include mentioned above, include this activation snippet
 
 ```html
@@ -34,22 +34,18 @@ crystal.js is easily modifiable and easily extendable. See the section "crystal.
         standardSubmitForm('FORM-ID') // If standard form submit, leave this. 
 </script>
 ```
-
 4. For the pre-made, easy to use validators
-    + For a **name field** add the ID `crystal-someName` to the `ID` attribute of the input element as well as the function call 
-    `inlineValidate(fields.someName)` to the `oninput` attribute. If the field is required, add the class `required`.
-    
-    + For an **email field** add the ID `crystal-email` to the input element as well the function call
-    `inlineValidate(fields.email)` to the `oninput` attribute. If the field is required, add the class `required`.
 
-    + For a **message field** add the ID `crystal-message` to the input element as well the function call
-    `inlineValidate(fields.message)` to the `oninput` attribute. If the field is required, add the class `required`.
++ For a **name field** add the ID `crystal-someName` to the `ID` attribute of the input element as well as the function call 
+`inlineValidate(fields.someName)` to the `oninput` attribute. If the field is required, add the class `required`. 
++ For an **email field** add the ID `crystal-email` to the input element as well the function call
+`inlineValidate(fields.email)` to the `oninput` attribute. If the field is required, add the class `required`.
++ For a **message field** add the ID `crystal-message` to the input element as well the function call
+`inlineValidate(fields.message)` to the `oninput` attribute. If the field is required, add the class `required`.
++ For a **hidden spam-check field** add the ID `crystal-spamcheck` to the input element as well the function call 
+`inlineValidate(fields.spamcheck)` to the `oninput` attribute. If the field is required, add the class `required`.
++ Here is an example:
 
-    + For a **hidden spam-check field** add the ID `crystal-spamcheck` to the input element as well the function call 
-    `inlineValidate(fields.spamcheck)` to the `oninput` attribute. If the field is required, add the class `required`.
-    
-    + Here is an example:
-    
     ```html
     <input type="text" id="crystal-someName" name="someName" oninput="inlineValidate(fields.someName)" class="required">
     ```
@@ -60,7 +56,6 @@ crystal.js is easily modifiable and easily extendable. See the section "crystal.
     ```
 6. **If desired**, add some sort of HTML element to alert a user that their input was invalid, or that a message was sent successfully when the submit button is clicked. crystal.js will show the success alert if the message is sent successfully and if you add the class 
 `alert-success` to the element. It will also show the invalid alert if you add the class `alert-invalid` to the element. 
-
 7. **Always** use server side validation as well!
 
 
