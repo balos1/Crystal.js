@@ -22,33 +22,33 @@ crystal.js is easily modifiable and easily extendable. See the section "crystal.
 1. Download or clone crystal.js
 2. Include crystal.js and form-serialize at the bottom of your page.
         
-```html       
-<script type='text/javascript', src='http://form-serialize.googlecode.com/svn/trunk/serialize-0.2.min.js'</script>
-<script type='text/javascript', src='/path/to/crystal.js'></script>
-```
+    ```html       
+    <script type='text/javascript', src='http://form-serialize.googlecode.com/svn/trunk/serialize-0.2.min.js'</script>
+    <script type='text/javascript', src='/path/to/crystal.js'></script>
+    ```
 3. Right below the crystal.js include mentioned above, include this activation snippet
 
-```html
-<script type='text/javascript'>
-        ajaxSubmitForm('FORM-ID') // If using ajax to submit form, leave this.
-        standardSubmitForm('FORM-ID') // If standard form submit, leave this. 
-</script>
-```
+    ```html
+    <script type='text/javascript'>
+            ajaxSubmitForm('FORM-ID') // If using ajax to submit form, leave this.
+            standardSubmitForm('FORM-ID') // If standard form submit, leave this. 
+    </script>
+    ```
 4. For the pre-made, easy to use validators
 
-+ For a **name field** add the ID `crystal-someName` to the `ID` attribute of the input element as well as the function call 
-`inlineValidate(fields.someName)` to the `oninput` attribute. If the field is required, add the class `required`. 
-+ For an **email field** add the ID `crystal-email` to the input element as well the function call
-`inlineValidate(fields.email)` to the `oninput` attribute. If the field is required, add the class `required`.
-+ For a **message field** add the ID `crystal-message` to the input element as well the function call
-`inlineValidate(fields.message)` to the `oninput` attribute. If the field is required, add the class `required`.
-+ For a **hidden spam-check field** add the ID `crystal-spamcheck` to the input element as well the function call 
-`inlineValidate(fields.spamcheck)` to the `oninput` attribute. If the field is required, add the class `required`.
-+ Here is an example:
+    + For a **name field** add the ID `crystal-someName` to the `ID` attribute of the input element as well as the function call 
+    `inlineValidate(fields.someName)` to the `oninput` attribute. If the field is required, add the class `required`. 
+    + For an **email field** add the ID `crystal-email` to the input element as well the function call
+    `inlineValidate(fields.email)` to the `oninput` attribute. If the field is required, add the class `required`.
+    + For a **message field** add the ID `crystal-message` to the input element as well the function call
+    `inlineValidate(fields.message)` to the `oninput` attribute. If the field is required, add the class `required`.
+    + For a **hidden spam-check field** add the ID `crystal-spamcheck` to the input element as well the function call 
+    `inlineValidate(fields.spamcheck)` to the `oninput` attribute. If the field is required, add the class `required`.
+    + Here is an example:
 
-    ```html
-    <input type="text" id="crystal-someName" name="someName" oninput="inlineValidate(fields.someName)" class="required">
-    ```
+        ```html
+        <input type="text" id="crystal-someName" name="someName" oninput="inlineValidate(fields.someName)" class="required">
+        ```
 5. Add CSS to indicate when a field is invalid.
     
     ```css
