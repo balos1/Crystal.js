@@ -1,0 +1,8 @@
+Changelog
+
+----11-21-14----
+- Name Changed to crystal.js from chivlary.js
+- Version to 0.1.0 to signify major change
+- No Jquery required anymore, pure JS
+	- Pure JS ajax form
+	- Pure JS element styling
