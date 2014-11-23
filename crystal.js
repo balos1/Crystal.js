@@ -1,6 +1,6 @@
 'use strict';
 
-var cystal = new Object();
+var crystal = new Object();
 
 function crystalField(regex, domOBJ) {
 	this.domOBJ = domOBJ; 
@@ -33,23 +33,23 @@ function isValid() {
 
 // A default object for name validation.
 // Will match anything not blank or containing digits. 
-cystal.someName  = new crystalField( /[A-Za-z -']$/ , document.getElementById('crystal-someName'));
+crystal.someName  = new crystalField( /[A-Za-z -']$/ , document.getElementById('crystal-someName'));
 
 // A default object for email validation.
 // Will validate all emails that adhere to the RFC2822 standard.
-cystal.email = new crystalField( '' , document.getElementById('crystal-email'));
+crystal.email = new crystalField( '' , document.getElementById('crystal-email'));
 // Directly changing the value of email.regex
 // becaues passing this huge beastas an param would be messy
-cystal.email.regex = /^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*$/;
+crystal.email.regex = /^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*$/;
 
 // A default object for message validation.
 // Will match everything but an empty message.
-cystal.message  = new crystalField( /^(?!\s*$).+/ , document.getElementById('crystal-message'));
+crystal.message  = new crystalField( /^(?!\s*$).+/ , document.getElementById('crystal-message'));
 
 // A default object for a hidden spamecheck crystalField. 
 // Returns false if crystalField is anything but empty.
-cystal.spamcheck = new crystalField( /^(?!\s*$).+/ , document.getElementById('crystal-spamcheck'))
-cystal.spamcheck = {
+crystal.spamcheck = new crystalField( /^(?!\s*$).+/ , document.getElementById('crystal-spamcheck'))
+crystal.spamcheck = {
 	isValid: function() {
 		if (!this.regex(this.domOBJ.value)) {
 			return true;
@@ -64,7 +64,7 @@ cystal.spamcheck = {
 }
 
 // Checks if crystalField is valid and adds the CSS
-// classes used to show invalid cystal. Also changes lastState.
+// classes used to show invalid crystal. Also changes lastState.
 function inlineValidate(crystalField) {
 	if(!crystalField.isValid() && crystalField.wasActive() > 0) {
 			crystalField.domOBJ.className += ' invalid';
@@ -87,8 +87,8 @@ function ajaxSubmitForm(formID) {
 			e.preventDefault();
 
 			var valid = true;
-			for(var crystalField in cystal) {
-				if(cystal[crystalField].lastState === false) {
+			for(var crystalField in crystal) {
+				if(crystal[crystalField].lastState === false) {
 					valid = false;
 				} 
 			}
@@ -133,8 +133,8 @@ function standardSubmitForm(formID) {
 		function(e) {
 			var valid = true;
 			
-			for(var crystalField in cystal) {
-				if(cystal[crystalField].lastState === false) {
+			for(var crystalField in crystal) {
+				if(crystal[crystalField].lastState === false) {
 					e.preventDefault();
 					valid = false;
 				} 
