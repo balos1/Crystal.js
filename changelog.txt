@@ -1,6 +1,6 @@
 Changelog
-----11-12-14 0.1.0----
--Minor change, no version incrementation
+----11-12-14 0.1.1----
+-Minor change
     - Removed expected repsonse type from AJAX request
 
 ----11-21-14 0.1.0----
