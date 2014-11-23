@@ -1,6 +1,8 @@
 Changelog
+----11-22-14 0.1.2----
+- Changed object names to match plugin name
 ----11-12-14 0.1.1----
--Minor change
+- Minor change
     - Removed expected repsonse type from AJAX request
 
 ----11-21-14 0.1.0----

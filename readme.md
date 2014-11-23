@@ -1,6 +1,6 @@
 crystal.js
 ---
-##### Version 0.1.1
+##### Version 0.1.2
 ##### See it in action at http://functioncreate.com
 
 # A lightweight Javascript inline/live form validator
