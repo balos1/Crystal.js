@@ -8,7 +8,7 @@ crystal.js
 + No Jquery.
 
 # Easy use, Built-In Validation Functions
-crystal.js has four of the most common fields covered with prebuilt functions.
+crystal.js has four of the most common crystal covered with prebuilt functions.
 
 + Name (checks if name is not empty and without digits)
 + Email (checks if email adheres to the RFC2822 standard)
@@ -37,17 +37,17 @@ crystal.js is easily modifiable and easily extendable. See the section "crystal.
 4. For the pre-made, easy to use validators
 
     + For a **name field** add the ID `crystal-someName` to the `ID` attribute of the input element as well as the function call 
-    `inlineValidate(fields.someName)` to the `oninput` attribute. If the field is required, add the class `required`. 
+    `inlineValidate(crystal.someName)` to the `oninput` attribute. If the field is required, add the class `required`. 
     + For an **email field** add the ID `crystal-email` to the input element as well the function call
-    `inlineValidate(fields.email)` to the `oninput` attribute. If the field is required, add the class `required`.
+    `inlineValidate(crystal.email)` to the `oninput` attribute. If the field is required, add the class `required`.
     + For a **message field** add the ID `crystal-message` to the input element as well the function call
-    `inlineValidate(fields.message)` to the `oninput` attribute. If the field is required, add the class `required`.
+    `inlineValidate(crystal.message)` to the `oninput` attribute. If the field is required, add the class `required`.
     + For a **hidden spam-check field** add the ID `crystal-spamcheck` to the input element as well the function call 
-    `inlineValidate(fields.spamcheck)` to the `oninput` attribute. If the field is required, add the class `required`.
+    `inlineValidate(crystal.spamcheck)` to the `oninput` attribute. If the field is required, add the class `required`.
     + Here is an example:
 
         ```html
-        <input type="text" id="crystal-someName" name="someName" oninput="inlineValidate(fields.someName)" class="required">
+        <input type="text" id="crystal-someName" name="someName" oninput="inlineValidate(crystal.someName)" class="required">
         ```
 5. Add CSS to indicate when a field is invalid.
     
@@ -62,8 +62,8 @@ crystal.js is easily modifiable and easily extendable. See the section "crystal.
 # crystal.js Objects and Functions
 If you are looking to extend crystal.js It is important to know how the `isValid` function in crystal.js works, as well as how the model for the `field` object looks. 
 
-#### The `field` object
-|    -----------------    **field**        -----------------    |
+#### The `crystalField` object
+|    -----------------    **crystalField**        -----------------    |
 |---|
 |domObj|
 |regex|
@@ -91,7 +91,7 @@ function isValid() {
 In the "activation snippet" `<script></script>` , right below the include `<script></script>` tags, create a new `field` object. The `field` constructor takes two arguments, the first being either a regex variable, or the regex directly. The second argument to the constructor is the DOM object to be validated. Here is an example below:
         
 ```javascript
-fields.fieldToBeValidated = new field( /^(?!\s*$).+/ , document.getElementById('crystal-fieldToBeValidated'));
+crystal.fieldToBeValidated = new crystalField( /^(?!\s*$).+/ , document.getElementById('crystal-fieldToBeValidated'));
 ```
         
 It is **highly** recommended to follow the same naming convention as the built in crystal.js validator objects. I.e. the name of the object matches the suffix of the ID, which is prefixed with "crystal-".  
