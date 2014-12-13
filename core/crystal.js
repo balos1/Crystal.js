@@ -163,7 +163,6 @@
 
 		this.config = Field.augment({}, this.defaults, fieldConfig || {});
 
-		console.log(this.config)
 		// make sure trigger option is legit
 		if(this.config.trigger !== "oninput" && this.config.trigger !== "onblur") {
 			this.config.trigger = this.defaults.trigger;
@@ -282,24 +281,3 @@
     }
 	}
 })(window, document);
-
-var crystal = new Crystal({
-		formID: "contact-us",
-    ajaxSubmit: true,
-});
-crystal.addField({
-	fieldID: "crystal-someName",
-	commonName: "name",
-	regex: /[A-Za-z -']$/
-})
-crystal.addField({
-	fieldID: "crystal-email",
-	commonName: "email",
-	regex: /^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*$/
-})
-crystal.addField({
-	fieldID: "crystal-message",
-	commonName: "message",
-	regex: /^(?!\s*$).+/
-})
-

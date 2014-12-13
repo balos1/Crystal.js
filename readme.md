@@ -18,7 +18,7 @@ The file crystal-common.js implements crystal.js and provides validation for the
     ```html       
     <script type='text/javascript', src='http://form-serialize.googlecode.com/svn/trunk/serialize-0.2.min.js'</script>
     <script type='text/javascript', src='/path/to/crystal.min.js'></script>
-    <script type='text/javascript', src='/path/to/crystal-common.min.js'</script>
+    <script type='text/javascript', src='/path/to/crystal-common.min.js'></script>
     ```
 
 2. You will need to add the id `crystal-someName` to your name input element like so:
