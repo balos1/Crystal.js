@@ -1,4 +1,10 @@
 Changelog
+----12-13-14 0.1.3----
+- Introduceds BREAKING CHANGES
+- Major code refactor
+    - Reduced number of global variables
+    - Implemented modular pattern
+    - Added support for script loader
 ----11-22-14 0.1.2----
 - Changed object names to match plugin name
 ----11-12-14 0.1.1----
