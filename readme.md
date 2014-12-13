@@ -23,9 +23,9 @@ The file crystal-common.js implements crystal.js and provides validation for the
 
 2. You will need to add the id `crystal-someName` to your name input element like so:
 
-        ```html
-        <input type="text" id="crystal-someName" name="someName"></input>
-        ```
+    ```html
+    <input type="text" id="crystal-someName" name="someName"></input>
+    ```
 
 For an email field, set the input element's id to `crystal-email`. For a message field, set the input element's id to `crystal-message`. 
 
@@ -33,17 +33,17 @@ For an email field, set the input element's id to `crystal-email`. For a message
 ### Flexible and Extendable
 crystal.js is easily modifiable and easily extendable. It is built in a modular pattern, and provides a `module.export` for script loaders implementing the node.js module patter, or a named AMD module. crystal.js is easily extendible without using a script loader as well. To define your own crystal object and fields, use the `Crystal` constructor and the `addField` method. Below is an example:
 
-    ```javascript
-    var crystal = new Crystal({
-        formID: "contact-us",
-        ajaxSubmit: true,
-    });
-    crystal.addField({
-        fieldID: "crystal-someName",
-        commonName: "name",
-        regex: /[A-Za-z -']$/
-    })
-    ```
+```javascript
+var crystal = new Crystal({
+    formID: "contact-us",
+    ajaxSubmit: true,
+});
+crystal.addField({
+    fieldID: "crystal-someName",
+    commonName: "name",
+    regex: /[A-Za-z -']$/
+})
+```
 
 The full list of options is found below.
 
