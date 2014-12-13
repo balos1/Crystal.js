@@ -29,9 +29,16 @@ The file crystal-common.js implements crystal.js and provides validation for the
 
 For an email field, set the input element's id to `crystal-email`. For a message field, set the input element's id to `crystal-message`. 
 
+3. Add the CSS 
+```css
+.crystal-invalid {
+  border: 2px solid #f15b22 !important;
+}
+```
+
 # For Developers
 ### Flexible and Extendable
-crystal.js is easily modifiable and easily extendable. It is built in a modular pattern, and provides a `module.export` for script loaders implementing the node.js module patter, or a named AMD module. crystal.js is easily extendible without using a script loader as well. To define your own crystal object and fields, use the `Crystal` constructor and the `addField` method. Below is an example:
+crystal.js is easily modifiable and easily extendable. It is built in a modular pattern, and provides a `module.export` for script loaders implementing the node.js module pattern, or a named AMD module. crystal.js is easily extendible without using a script loader as well. To define your own crystal object and fields, use the `Crystal` constructor and the `addField` method. Below is an example:
 
 ```javascript
 var crystal = new Crystal({
