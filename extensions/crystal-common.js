@@ -5,7 +5,7 @@ var crystal = new Crystal({
 crystal.addField({
 	fieldID: "crystal-someName",
 	commonName: "name",
-	regex: /[A-Za-z -']$/
+	regex: /^(?!\s*$).+/
 })
 crystal.addField({
 	fieldID: "crystal-email",
