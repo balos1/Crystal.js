@@ -97,7 +97,7 @@
 						} 
 					}
 
-					if(valid === true) {
+					if(valid) {
 						form = serialize(document.getElementById(this.config.formID));
 
 						xhr = new XMLHttpRequest();
@@ -123,19 +123,21 @@
 			document.getElementById(this.config.formID).addEventListener('submit', 
 				function(e) {
 					var valid;
-					// prevent submission for now
-					e.preventDefault();
 
 					valid = true;
 
 					for(var field in this.config.fields) {
-						if(this.config.fields[field].lastState === false) {
+						if(this.config.fields[field].config.lastState === false) {
 							valid = false;
 						} 
 					}
-				}.bind(this));
-
-				valid ? e.submit() : this.style(true);
+					
+					if(!valid) {
+						e.preventDefault();
+						this.style(false);
+						this.standardSubmitForm();
+					}
+				}.bind(this));			
 		}
 
 	} // end Crystal.prototype
