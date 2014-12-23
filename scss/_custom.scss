@@ -1,0 +1,19 @@
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 400;
+	@media #{$medium-up} {
+	}
+	@media #{$large-up} {
+	}
+}
+
+textarea {
+	resize: both;
+	width: 100%;
+}
+textarea.message {
+	height: 13em;
+}
+
+.crystal-invalid {
+  border: 2px solid $warning-color !important;
+}

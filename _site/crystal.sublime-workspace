@@ -1,0 +1,1260 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"con",
+				"console"
+			],
+			[
+				"aja",
+				"ajaxSubmitForm"
+			],
+			[
+				"aa",
+				"ajaxSubmit"
+			],
+			[
+				"aj",
+				"ajaxSubmitForm"
+			],
+			[
+				"va",
+				"valid"
+			],
+			[
+				"retu",
+				"returns	@returns"
+			],
+			[
+				"s",
+				"submitted"
+			],
+			[
+				"config",
+				"config"
+			],
+			[
+				"cont",
+				"contactUs"
+			],
+			[
+				"c",
+				"crystalForm"
+			],
+			[
+				"field",
+				"fieldConfig"
+			],
+			[
+				"fiel",
+				"field"
+			],
+			[
+				"co",
+				"config"
+			],
+			[
+				"pro",
+				"prototype"
+			],
+			[
+				"crystal",
+				"crystalForm"
+			],
+			[
+				"cry",
+				"crystalForm"
+			],
+			[
+				"contat",
+				"contact-us"
+			],
+			[
+				"crsys",
+				"crystalInstance"
+			],
+			[
+				"form",
+				"formName"
+			],
+			[
+				"time",
+				"timesActive"
+			],
+			[
+				"stand",
+				"standardSubmitForm"
+			],
+			[
+				"st",
+				"strict"
+			],
+			[
+				"crys",
+				"crystalField"
+			],
+			[
+				"ajaxs",
+				"ajaxSubmitForm"
+			],
+			[
+				"fi",
+				"fields"
+			],
+			[
+				"sub",
+				"submitType"
+			],
+			[
+				"aler",
+				"alert-success"
+			],
+			[
+				"spam",
+				"spamcheck"
+			],
+			[
+				"dom",
+				"domOBJ"
+			],
+			[
+				"v",
+				"value"
+			],
+			[
+				"is",
+				"isValid"
+			],
+			[
+				"re",
+				"regex"
+			],
+			[
+				"ma",
+				"max-width"
+			],
+			[
+				"Im",
+				"important"
+			],
+			[
+				"ter",
+				"terminal-output"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"last",
+				"lastState"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"d",
+				"document"
+			],
+			[
+				"all",
+				"allValid"
+			],
+			[
+				"on",
+				"oninput"
+			],
+			[
+				"in",
+				"invalid"
+			],
+			[
+				"class",
+				"className"
+			],
+			[
+				"do",
+				"domOBJ"
+			],
+			[
+				"javasc",
+				"javascript"
+			],
+			[
+				"ja",
+				"javascript"
+			],
+			[
+				"java",
+				"JavaScript"
+			],
+			[
+				"pre",
+				"preventDefault"
+			],
+			[
+				"e",
+				"errorThrown"
+			],
+			[
+				"error",
+				"errors"
+			],
+			[
+				"em",
+				"email"
+			],
+			[
+				"r",
+				"router"
+			],
+			[
+				"expr",
+				"expressValidator"
+			],
+			[
+				"not",
+				"notEmpty"
+			],
+			[
+				"functio",
+				"functioncreate"
+			],
+			[
+				"no",
+				"nodemailer"
+			],
+			[
+				"small",
+				"small-6"
+			],
+			[
+				"lare",
+				"large-12"
+			],
+			[
+				"our",
+				"our-work"
+			],
+			[
+				"pa",
+				"padding"
+			],
+			[
+				"large",
+				"large-4"
+			],
+			[
+				"padding",
+				"padding-top"
+			],
+			[
+				"border",
+				"border-radius"
+			],
+			[
+				"town",
+				"town1"
+			],
+			[
+				"grow",
+				"growthRate"
+			],
+			[
+				"which",
+				"whichWillItSurpass"
+			],
+			[
+				"cl",
+				"calculations"
+			],
+			[
+				"to",
+				"town2"
+			],
+			[
+				"tow",
+				"town1"
+			],
+			[
+				"new",
+				"newPopulation2"
+			],
+			[
+				"two",
+				"town1"
+			],
+			[
+				"grot",
+				"growthRate"
+			],
+			[
+				"t",
+				"town1"
+			],
+			[
+				"will",
+				"willSurpass"
+			],
+			[
+				"grw",
+				"growthRate"
+			],
+			[
+				"f",
+				"fasterGrowth"
+			],
+			[
+				"gw",
+				"growthRate"
+			],
+			[
+				"gro",
+				"growthRate"
+			],
+			[
+				"gr",
+				"growthRate"
+			],
+			[
+				"p",
+				"population"
+			],
+			[
+				"cout",
+				"count"
+			],
+			[
+				"nu",
+				"numberOfBoxes"
+			],
+			[
+				"numebe",
+				"numberOfBoxes"
+			],
+			[
+				"com",
+				"completedPackaging"
+			],
+			[
+				"nume",
+				"numberOfLeftOverCookies"
+			],
+			[
+				"num",
+				"numberOfContainers"
+			],
+			[
+				"numb",
+				"numberOfLeftOverBoxes"
+			],
+			[
+				"total",
+				"totalCookies"
+			],
+			[
+				"tot",
+				"totalCookies"
+			],
+			[
+				"la",
+				"large-12"
+			],
+			[
+				"man",
+				"managment"
+			],
+			[
+				"lar",
+				"large-12"
+			],
+			[
+				"box",
+				"boxesPerContainer"
+			],
+			[
+				"cook",
+				"cookiesPerBox"
+			],
+			[
+				"Box",
+				"BOXES_PER_CONTAINER"
+			],
+			[
+				"B",
+				"Balos"
+			],
+			[
+				"nue",
+				"numberOfBoxes"
+			],
+			[
+				"u",
+				"userBoxInContainer"
+			],
+			[
+				"user",
+				"userTotal"
+			],
+			[
+				"us",
+				"userBoxInContainer"
+			],
+			[
+				"use",
+				"userTotal"
+			],
+			[
+				"reu",
+				"return"
+			],
+			[
+				"shipping",
+				"shippingPackaging"
+			],
+			[
+				"number",
+				"numberOfContainers"
+			],
+			[
+				"ship",
+				"shipCookies"
+			],
+			[
+				"n",
+				"numberOfContainers"
+			],
+			[
+				"packg",
+				"packaging"
+			],
+			[
+				"cal",
+				"calculatePackagingNeeds"
+			],
+			[
+				"int",
+				"userBoxInContainer"
+			],
+			[
+				"max",
+				"max_data"
+			],
+			[
+				"D",
+				"Database_close"
+			],
+			[
+				"datab",
+				"Database_close"
+			],
+			[
+				"Datab",
+				"Database_write"
+			],
+			[
+				"Databs",
+				"Database_list"
+			],
+			[
+				"Dtabase",
+				"Database_write"
+			],
+			[
+				"Datba",
+				"Database_get"
+			],
+			[
+				"Da",
+				"Database_create"
+			],
+			[
+				"Addr",
+				"Address_print"
+			],
+			[
+				"M",
+				"MAX_ROWS"
+			],
+			[
+				"Add",
+				"Address_print"
+			],
+			[
+				"Databa",
+				"Database"
+			],
+			[
+				"MA",
+				"MAX_ROWS"
+			],
+			[
+				"Data",
+				"Database"
+			],
+			[
+				"m",
+				"MAX_ROWS"
+			],
+			[
+				"inc",
+				"include"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"field_se",
+				"field_secondary_titile"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 10717,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/Markdown Preview/Markdown.sublime-build",
+	"command_palette":
+	{
+		"height": 400.0,
+		"selected_items":
+		[
+			[
+				"tag",
+				"Tag: Auto-Format Tags on Document"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"emm",
+				"Emmet: Expand Abbreviation"
+			],
+			[
+				"emme",
+				"Emmet: Balance (inward)"
+			],
+			[
+				"git pu",
+				"Git: Push"
+			],
+			[
+				"git",
+				"Git: Commit"
+			],
+			[
+				"git add",
+				"Git: Add..."
+			],
+			[
+				"mini",
+				"Minify Javascript to file"
+			],
+			[
+				"git p",
+				"Git: Push"
+			],
+			[
+				"git com",
+				"Git: Commit"
+			],
+			[
+				"git dele",
+				"Git: Delete Branch"
+			],
+			[
+				"git chan",
+				"Git: Change Branch"
+			],
+			[
+				"git br",
+				"Git: Change Branch"
+			],
+			[
+				"git a",
+				"Git: Add..."
+			],
+			[
+				"git ",
+				"Git: Commit"
+			],
+			[
+				"min",
+				"Minify Javascript to file"
+			],
+			[
+				"git ad",
+				"Git: Add..."
+			],
+			[
+				"git ch",
+				"Git: Change Branch"
+			],
+			[
+				"git b",
+				"Git: Merge Branch"
+			],
+			[
+				"git push",
+				"Git: Push Current Branch"
+			],
+			[
+				"git branch",
+				"Git: Change Branch"
+			],
+			[
+				"mii",
+				"Minify Javascript to file"
+			],
+			[
+				"git ne",
+				"Git: New Branch"
+			],
+			[
+				"gti add",
+				"Git: Add..."
+			],
+			[
+				"git n",
+				"Git: New Branch"
+			],
+			[
+				"git new",
+				"Git: New Branch"
+			],
+			[
+				"git comm",
+				"Git: Commit"
+			],
+			[
+				"git co",
+				"Git: Commit"
+			],
+			[
+				"mi",
+				"Minify Javascript to file"
+			],
+			[
+				"githu",
+				"GitHub Flavored Markdown: Preview"
+			],
+			[
+				"gith",
+				"GitHub Flavored Markdown: Preview"
+			],
+			[
+				"mar",
+				"GitHub Flavored Markdown: Preview"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"git c",
+				"Git: Commit"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"gitadd",
+				"Git: Add..."
+			],
+			[
+				"git ce",
+				"Git: Change Branch"
+			],
+			[
+				"git del",
+				"Git: Delete Branch"
+			],
+			[
+				"gt pus",
+				"Git: Push"
+			],
+			[
+				"git ps",
+				"Git: Push"
+			],
+			[
+				"git pus",
+				"Git: Push"
+			],
+			[
+				"Remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"Mini",
+				"Minify Javascript to file"
+			],
+			[
+				"install pa",
+				"Package Control: Install Package"
+			],
+			[
+				"Remove Pa",
+				"Package Control: Remove Package"
+			],
+			[
+				"Packa",
+				"Package Control: Remove Package"
+			],
+			[
+				"paca",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"m",
+				"Minify Javascript to file"
+			],
+			[
+				"git Add",
+				"Git: Add Current File"
+			],
+			[
+				"git add ",
+				"Git: Add..."
+			],
+			[
+				"git me",
+				"Git: Merge Branch"
+			],
+			[
+				"Git",
+				"Git: Push"
+			],
+			[
+				"Git A",
+				"Git: Add..."
+			],
+			[
+				"git up",
+				"Git: Update Project Ignored Files"
+			],
+			[
+				"",
+				"About"
+			],
+			[
+				"git comi",
+				"Git: Commit"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"pa",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Package Control: List Packages"
+			],
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			]
+		],
+		"width": 601.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib2,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), 'wb' ).write(by) if dh == h else None; print('Error validating download (got %s instead of %s), please try manual install' % (dh, h) if dh != h else 'Please restart Sublime Text to finish installation')",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/Cody/SkyDrive/Dev-Projects/crystaljs"
+	],
+	"file_history":
+	[
+		"/Users/Cody/SkyDrive/Dev-Projects/crystaljs/core/crystal.js",
+		"/Users/Cody/SkyDrive/Dev-Projects/crystaljs/core/crystal.min.js",
+		"/Users/Cody/SkyDrive/Dev-Projects/crystaljs/extensions/crystal-common.js",
+		"/Users/Cody/SkyDrive/Dev-Projects/crystaljs/extensions/crystal-common.min.js",
+		"/Users/Cody/SkyDrive/Dev-Projects/crystaljs/css/crystal.css",
+		"/Users/Cody/SkyDrive/Dev-Projects/crystaljs/readme.md",
+		"/Users/Cody/.ssh/config",
+		"/Users/Cody/SkyDrive/Dev-Projects/crystaljs/changelog.txt",
+		"/Users/Cody/SkyDrive/Dev-Projects/crystaljs/crystal.js",
+		"/Users/Cody/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/Cody/SkyDrive/Dev-Projects/crystaljs/crystal-common.js",
+		"/Users/Cody/SkyDrive/Dev-Projects/crystaljs/crystal-common.min.js",
+		"/Users/Cody/SkyDrive/Dev-Projects/crystaljs/crystal.min.js",
+		"/Users/Cody/Desktop/functioncreate/node_modules/express/lib/express.js",
+		"/Users/Cody/Desktop/functioncreate/app.js",
+		"/Users/Cody/Desktop/functioncreate/node_modules/express/lib/application.js",
+		"/Users/Cody/Desktop/functioncreate/node_modules/express/index.js",
+		"/Users/Cody/SkyDrive/Dev-Projects/chivlaryjs/validator.sublime-project",
+		"/Users/Cody/SkyDrive/Dev-Projects/chivlaryjs/legit.js",
+		"/Users/Cody/SkyDrive/Dev-Projects/legitjs/legit.min.js",
+		"/Users/Cody/SkyDrive/Dev-Projects/legitjs/readme.md",
+		"/Users/Cody/SkyDrive/Dev-Projects/legitjs/license.txt",
+		"/Users/Cody/SkyDrive/Dev-Projects/legitjs/legit.css",
+		"/Users/Cody/Desktop/functioncreate/public/stylesheets/slick.min.css",
+		"/Users/Cody/Desktop/functioncreate/public/stylesheets/foundation.min.css",
+		"/Users/Cody/Desktop/functioncreate/public/stylesheets/slick.css",
+		"/Users/Cody/Desktop/functioncreate/bin/www",
+		"/Users/Cody/.bash_profile",
+		"/Users/Cody/Desktop/functioncreate/public/stylesheets/style.css",
+		"/Users/Cody/Desktop/functioncreate/public/javascripts/fncr-animations.js",
+		"/Users/Cody/Desktop/functioncreate/public/stylesheets/normalize.min.css",
+		"/Users/Cody/Desktop/functioncreate/public/javascripts/min/foundation/foundation.topbar.min.js",
+		"/Users/Cody/Desktop/functioncreate/public/stylesheets/bounce.css",
+		"/Users/Cody/Desktop/functioncreate/package.json",
+		"/Users/Cody/Desktop/functioncreate/public/stylesheets/style.styl",
+		"/Users/Cody/Desktop/functioncreate/views/layout.jade",
+		"/Users/Cody/Desktop/functioncreate/public/javascripts/fncr-contact.min.js",
+		"/Users/Cody/Desktop/functioncreate/public/javascripts/fncr-contact.js",
+		"/Users/Cody/Desktop/functioncreate/routes/index.js",
+		"/Users/Cody/Desktop/functioncreate/public/javascripts/fncr-contact.old.js",
+		"/Users/Cody/Desktop/functioncreate/public/javascripts/test.html",
+		"/Users/Cody/Desktop/functioncreate/public/javascripts/typed.min.js",
+		"/Users/Cody/Desktop/functioncreate/public/javascripts/fncr-animations.min.js",
+		"/Users/Cody/Desktop/functioncreate/public/javascripts/fncr-spamless.js",
+		"/Users/Cody/Desktop/functioncreate/public/foundation-icons/svgs/fi-graph-bar.svg",
+		"/Users/Cody/Desktop/functioncreate/public/foundation-icons/svgs/fi-social-github.svg",
+		"/Users/Cody/Desktop/functioncreate/public/foundation-icons/svgs/fi-tablet-portrait.svg",
+		"/Users/Cody/Desktop/functioncreate/public/foundation-icons/svgs/fi-paint-bucket.svg",
+		"/Users/Cody/Desktop/functioncreate/email.js",
+		"/Users/Cody/Desktop/functioncreate/public/javascripts/fnc-cat.js",
+		"/Users/Cody/Desktop/functioncreate/views/.sublec1.tmp",
+		"/Users/Cody/SkyDrive/ChipCO/Keys/Ron/quad",
+		"/Users/Cody/Desktop/functioncreate/views/index.jade",
+		"/Users/Cody/Desktop/functioncreate/public/javascripts/fncr-typed.js",
+		"/Users/Cody/Desktop/functioncreate/.gitignore",
+		"/Users/Cody/Desktop/functioncreate/fc.sublime-project",
+		"/Users/Cody/SkyDrive/School/CSCI271/assign04.cpp",
+		"/Users/Cody/SkyDrive/School/CSCI271/assign04",
+		"/Users/Cody/SkyDrive/ChipCO/Sites/Mrs_Leepers/_backups/drupal-modified-for-migration.sql",
+		"/Users/Cody/SkyDrive/ChipCO/Sites/Mrs_Leepers/_backups/drupal.sql",
+		"/Users/Cody/SkyDrive/School/CSCI271/assign03.cpp",
+		"/Users/Cody/SkyDrive/School/CSCI271/test.cpp",
+		"/Users/Cody/SkyDrive/School/CSCI271/inClass_1.cpp",
+		"/Users/Cody/Desktop/WFF/geocoder-script/geocode.js",
+		"/Users/Cody/Downloads/assign03.cpp",
+		"/Users/Cody/Desktop/gvareacodecheck/app.js",
+		"/private/etc/sshd_config",
+		"/Volumes/cody/www/functionCreate/public/javascripts/fncr-slick.js",
+		"/Volumes/cody/www/functionCreate/public/stylesheets/style.styl",
+		"/Volumes/cody/www/functionCreate/public/javascripts/fncr-typed.js",
+		"/Volumes/cody/www/functionCreate/.gitignore",
+		"/Volumes/cody/www/functionCreate/public/stylesheets/style.css",
+		"/Users/Cody/SkyDrive/C/db.dat",
+		"/Users/Cody/SkyDrive/C/ex10.c",
+		"/Users/Cody/SkyDrive/C/myC.txt",
+		"/Users/Cody/SkyDrive/C/ex17.c",
+		"/Users/Cody/SkyDrive/C/ex16.c",
+		"/Users/Cody/SkyDrive/School/CSCI271/WhatsMyGrade/wmg-user.h",
+		"/Users/Cody/SkyDrive/School/CSCI271/WhatsMyGrade/wmg-main.cpp",
+		"/Users/Cody/SkyDrive/School/CSCI271/WhatsMyGrade/wmg-user.cpp",
+		"/Users/Cody/SkyDrive/School/CSCI271/practice1-3.cpp",
+		"/Users/Cody/SkyDrive/School/CSCI271/WhatsMyGrade/wmg.sublime-project",
+		"/Volumes/SSD-BACKUP/Applications/Sublime Text.app/Contents/MacOS/changelog.txt",
+		"/Volumes/MASS-STORE/Dont-Delete/Install/Windows/ADOBE CS6.0 MASTER.COLLECTION - GOOD COPY/Torrent downloaded from ExtraTorrent.com.txt",
+		"/Users/Cody/Downloads/renew-10-vc.html",
+		"/Users/Cody/Downloads/renew-10.html",
+		"/Users/Cody/SkyDrive/ChipCO/Sites/Mrs_Leepers/style-leeper.css",
+		"/Users/Cody/SkyDrive/ChipCO/Sites/Mrs_Leepers/node--product--teaser.tpl.php",
+		"/Users/Cody/SkyDrive/ChipCO/Sites/Mrs_Leepers/node--product.tpl.php",
+		"/Users/Cody/SkyDrive/ChipCO/Sites/Mrs_Leepers/node--recipes--teaser.tpl.php",
+		"/Users/Cody/SkyDrive/ChipCO/Sites/Mrs_Leepers/node--recipes.tpl.php",
+		"/Applications/Sublime Text.app/Contents/MacOS/changelog.txt",
+		"/Library/Preferences/Parallels/licenses.xml",
+		"/Users/Cody/Downloads/iStudiez Pro Data Backup.istd",
+		"/Users/Cody/Desktop/test.cpp",
+		"/Users/Cody/SkyDrive/ChipCO/Sites/Mrs_Leepers/node--products--teaser.tpl.php",
+		"/Users/Cody/SkyDrive/ChipCO/Sites/Mrs_Leepers/node--products--teaser.php",
+		"/Users/Cody/SkyDrive/Keep/WP_Themes/x_package/x-demo-content.xml",
+		"/Users/Cody/SkyDrive/School/CSCI271/Balos_assignment2.cpp",
+		"/Users/Cody/Downloads/drupal.sql",
+		"/Users/Cody/Downloads/appointments/appointments.php",
+		"/Users/Cody/SkyDrive/C/ex15-extra.c",
+		"/Users/Cody/SkyDrive/C/ex15.c",
+		"/Users/Cody/SkyDrive/C/ex6.c",
+		"/Users/Cody/SkyDrive/C/ex15-extra2.c",
+		"/Users/Cody/SkyDrive/C/ex5.c",
+		"/Users/Cody/SkyDrive/C/ex3.c",
+		"/Users/Cody/Desktop/wff-scraper/results.html",
+		"/Users/Cody/Desktop/wff-scraper/scrape.js",
+		"/Users/Cody/Desktop/wff-scraper/results.json",
+		"/Users/Cody/Desktop/wff-scraper/package.json",
+		"/Users/Cody/Desktop/wff-scraper/results.txt",
+		"/Users/Cody/Desktop/wff-scraper/README.md",
+		"/Users/Cody/SkyDrive/Documents/mazda-mods/README.md",
+		"/Volumes/cody/www/functionCreate/views/layout.jade",
+		"/Volumes/cody/www/functionCreate/views/index.jade",
+		"/Users/Cody/ssh/config",
+		"/Volumes/cody/www/functionCreate/index.html",
+		"/Users/Cody/SkyDrive/Documents/mazda-mods/modded-files/syssettingsApp.js",
+		"/Users/Cody/Desktop/syssettingsApp copy.js",
+		"/Users/Cody/Desktop/WFF/wff_dropdown/wff_dropdown.module",
+		"/Users/Cody/Desktop/WFF/wff_dropdown/wff_dropdown_bak.module",
+		"/private/var/folders/qh/5gdt3tm14s13pxwz5ncbf7_c0000gn/T/fz3temp-1/footer.php",
+		"/Users/Cody/Desktop/WFF/wff_dropdown/wff_dropdown.css",
+		"/Users/Cody/SkyDrive/ChipCO/Sites/Mrs_Leepers/mrs_leepers/mrs_leepers.info",
+		"/Users/Cody/Desktop/_ssh/zeppelin.command",
+		"/Users/Cody/SkyDrive/ChipCO/keys/Cody/blue_gum",
+		"/Users/Cody/SkyDrive/School/CSCI271/Balos_assignment1.cpp"
+	],
+	"find":
+	{
+		"height": 32.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"h1",
+			"console.log",
+			"crystal",
+			"ChipCO",
+			"Users/Cody",
+			"SkyDrive",
+			"wasActive",
+			"event",
+			"fields",
+			"flow",
+			"Flow",
+			"Opts",
+			"r",
+			"r ",
+			"r",
+			"crystalForm",
+			"this",
+			"=",
+			"this.",
+			"his_Crystal",
+			"crystalField.",
+			"this.[formName]",
+			"[formName]",
+			"}",
+			"fields",
+			"wasActive",
+			"= ",
+			"cystal",
+			"field",
+			"fields",
+			"field",
+			"fields",
+			"request",
+			"Request",
+			"request",
+			"Request",
+			"request",
+			"legit",
+			"chivalry.js",
+			"legit.js",
+			"#contact-us'",
+			"'#contact-us').",
+			"data-validator = ",
+			"data-",
+			"^(?!\\s*$).+",
+			"font-size",
+			"ALIGN",
+			"ALIGB",
+			"text-",
+			";",
+			":",
+			"<p>([^<]+)</p>",
+			"[\\w.js]+",
+			"[\\w]+[.js]",
+			"2750ms",
+			"8",
+			"10000",
+			"a(name",
+			"null",
+			"allValid",
+			"var active",
+			"isValid",
+			"allCaps",
+			"h4",
+			"invalid",
+			"isValid()",
+			"fields.name",
+			"allValid(fields);",
+			"onblu",
+			"name=",
+			"change",
+			"keyup",
+			"min",
+			"javascripts/",
+			"this.addClass('invalid');",
+			" $('#name').val();",
+			"[\\p{L}\\s'.-]+$",
+			"~",
+			"));",
+			"small-6",
+			"\"",
+			" style='width: 65px;'",
+			"-",
+			"div.specialties-inner.large-10",
+			"specialties-inner",
+			".specialties-inner",
+			"filepath",
+			"TABLE IF NOT EXISTS `file",
+			"files",
+			"test.mrsleepers.com",
+			"whichWillItSurpass",
+			"whenWillItSurpass",
+			"town",
+			"town2",
+			"town1",
+			"fasterGrowth",
+			"newPopulation2",
+			"newPopulation1",
+			"{\n",
+			"void",
+			"willSurpass",
+			"we",
+			"columns",
+			"div.small-12.medium-6.large-4.columns",
+			"cooksPerContainer",
+			"userBoxInContainer",
+			"userInBox",
+			"userTotal",
+			"MAX_ROWS",
+			"MAX_ROWS ",
+			"MAX_DATA",
+			"die",
+			"0000",
+			"rm ",
+			"set",
+			" \n",
+			"li",
+			"$secondary_ingredients",
+			"\">\n",
+			"#C4FFCF",
+			"#eee",
+			"grey",
+			"gray",
+			"background:transparent;color:#666;padding:12px 15px;border:3px solid",
+			"und",
+			"nw",
+			"nutrition-wrapper",
+			"nutrition"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"chivalry",
+			"Chivalry.js",
+			"chivalry.js",
+			"<span>$1</span>",
+			"div.specialties-inner.large-10.small-10.columns",
+			"mrsleepers.com",
+			"1111",
+			";",
+			",",
+			";"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10717,
+						"regions":
+						{
+							"TagLint":
+							{
+								"flags": 2356,
+								"icon": "dot",
+								"regions":
+								[
+									[
+										1221,
+										1226
+									]
+								],
+								"scope": "variable.parameter"
+							}
+						},
+						"selection":
+						[
+							[
+								1227,
+								1227
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 49.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 137.0
+	},
+	"output.markdown":
+	{
+		"height": 100.0
+	},
+	"project": "crystal.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"~/Desktop/functioncreate/fc.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 227.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
