@@ -3,11 +3,10 @@ crystal.js
 ##### Version 0.1.4
 ##### See it in action at http://cojomojo.github.io/Crystal.js/
 
-# A lightweight Javascript inline/live form validator
+## A lightweight Javascript inline/live form validator
 + 4KB minified 
-+ No Jquery.
++ No JQuery.
 
-# Tutorial
 ## Getting Started
 1. Download or clone Crystal.js and include it in your HTML markup.
     
@@ -74,8 +73,8 @@ crystal.ee.on("invalid", function(el){
 ## Going Further
 Crystal.js can be very powerful. Check out the [GitHub Wiki](https://github.com/cojomojo/crystal.js/wiki) for the complete and in depth documentation.
 
-# Contributing
+## Contributing
 The goal of crystal.js is to be a lightweight boilerplate for simple inline form validation. Thus, when contributing keep this in mind. Fork, and send a pull request. All contributors will be added to a list of contributors.
 
-# License
+## License
 MIT
