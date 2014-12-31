@@ -2,7 +2,7 @@
  * Crystal.js
  * https://github.com/cojomojo/crystal.js
  *
- * Copyright (c) 2014 Cody Balos
+ * Copyright (c) 2015 Cody Balos
  * Licensed under the MIT license.
  */
 
@@ -102,7 +102,6 @@
 				}
 			} else {
 				for(var i = 0; i < id.length; i++) {
-					console.log(this.getField(id[i], attribute).config);
 					this.getField(id[i], attribute).config = 
 						CrystalField.augment({}, this.getField(id[i], attribute).defaults, config || {});
 				}
