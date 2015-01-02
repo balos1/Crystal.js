@@ -37,7 +37,7 @@ Crystal.js
     ```
 
 ## Creating Validation Rules
-The flexibility of Crystal.js is because it allows for you to define the validation rules. It is very simple, just use the method `setFieldConfig`.
+The flexibility of Crystal.js is because it allows for you to define the validation rules. It is very simple, just use the method `setCrystalFieldConfig`.
 
 ```javascript
 /**
@@ -48,7 +48,7 @@ The flexibility of Crystal.js is because it allows for you to define the validat
  * @param {regex literal} [regex] Regex literal to test input value agains. You want this to match valid input
  * @param {input|blur} [trigger] Event that determines when fields are checked for validity. Defaults to "input".
  */
-crystal.setFieldConfig("all", "name", {
+crystal.setCrystalFieldConfig("all", "name", {
     regex: /^(?!\s*$).+/,
 });
 ```
