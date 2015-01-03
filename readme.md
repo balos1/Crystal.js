@@ -1,6 +1,6 @@
 Crystal.js
 ---
-##### Version v0.1.4
+##### Version v0.2.0
 ##### See it in action at http://cojomojo.github.io/Crystal.js/
 
 ## A lightweight Javascript inline/live form validator
@@ -56,19 +56,21 @@ crystal.setCrystalFieldConfig("all", "name", {
 Check out [these](https://github.com/cojomojo/Crystal.js/blob/master/validation-examples/common.js) awesome validation configurations for some common fields like name, email, and message. 
 
 ## Using the Event Emitter
-The next thing you will want to do is decide what will happen if a user submits a form when fields are valid or invalid. Crystal.js proivdes an event emitter to make handling this easy. Check out this example (setup for the Crystal.js [home page](http://cojomojo.github.io/Crystal.js/)):
+The next thing you will want to do is decide what will happen if a user submits a form when fields are valid or invalid. Crystal.js proivdes an event emitter to make handling this easy. Check out this example (setup for this site's home page):
 
 ```js
-crystal.ee.on("valid", function(el){
+crystal.ee.on("form-1-valid", function(el) {
     alert("Message Sent");
-})
+});
     
-crystal.ee.on("invalid", function(el){
+crystal.ee.on("form-1-invalid", function(el) {
     document.getElementById("not-valid").style.display = "block";
-})
+});
 ```
 
 *Note that when a form's submit button is pressed, and a field is invalid, `preventDefault()`is applied.*
+
+As you can see, each form emits it's own event. The events are dynamically named like so "form-(data-crystal-id)-valid" and "form-(data-crystal-id)-invalid".
 
 ## Going Further
 Crystal.js can be very powerful. Check out the [GitHub Wiki](https://github.com/cojomojo/crystal.js/wiki) for the complete and in depth documentation.
