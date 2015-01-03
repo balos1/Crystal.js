@@ -12,12 +12,12 @@
 	 * written in pure javascript. No jQuery. ALWAYS USE SERVER SIDE VALIDATION TOO!
 	 * @param {el} The parent DOM element of all form elements that will be crystallized
 	 */
-	function Crystal(el) {
+	function Crystal(devMode, el) {
 		var _init;
 
-		if(el === undefined) {
-			el = document;
-		}
+		// if(devMode)  crystalTest();
+
+		el = (typeof el === "undefined") ? document : el;
 
 		this.rawCrystalForms = [].slice.call(el.getElementsByTagName('form'));
 		this.crystallized = [];
@@ -53,6 +53,8 @@
 		 * @param  {integer} [id] the "data-crystal-id" of the element to be removed
 		 */
 		removeCrystalForm: function(id) {
+			this.rawCrystalForms[id-1].removeAttribute("data-crystal-id");
+
 			this.crystallized[id-1].selfDestruct();
 
 			this.rawCrystalForms.splice(id-1, 1);
@@ -60,7 +62,7 @@
 
 			// reset the crystal data attribute
 			for(var i = 0; i < this.rawCrystalForms.length; i++) {
-				this.rawCrystalForms[i].dataset.crystal = i+1;
+				this.rawCrystalForms[i].dataset.crystalId = i+1;
 			}
 		},
 
@@ -69,8 +71,19 @@
 		 * @param {[type]} formEl [description]
 		 */
 		addCrystalForm: function(formEl) {
+			var last;
+
 			this.rawCrystalForms.push(formEl);
-			this.crystallized.push(new CrystalForm(formEl));
+			last = this.rawCrystalForms.length - 1;
+
+			console.log(this.rawCrystalForms[last]);
+
+			this.crystallized.push(new CrystalForm(this.rawCrystalForms[last]));
+
+			// reset the crystal data attribute
+			for(var i = 0; i < this.rawCrystalForms.length; i++) {
+				this.rawCrystalForms[i].dataset.crystalId = i+1;
+			}
 		},
 
 		/**
@@ -97,7 +110,7 @@
 
 		/**s
 		 * Adds the given DOM element to both rawFields and 
-		 * @param {DOM object} [fieldEL] The field element 
+		 * @param {DOM object} [fieldEl] The field element 
 		 */
 		addCrystalField: function(id, fieldEl) {
 			this.getCrystalForm(id).addField(fieldEl);
@@ -157,7 +170,8 @@
 	function CrystalForm(formEl) { 
 		var _init;
 
-		this.rawFields = [].slice.call(formEl.querySelectorAll("input, textarea"));
+		this.rawSelf = formEl;
+		this.rawFields = [].slice.call(this.rawSelf.querySelectorAll("input, textarea"));
 		this.crystallizedFields = {};
 
 		_init = (function() {
@@ -171,7 +185,7 @@
 				}
 			}
 
-			this.watch(formEl);
+			this.watch();
 		}.bind(this))();
 	}; // end CrystalForm
 
@@ -179,28 +193,28 @@
 	CrystalForm.prototype = {
 		ee: Crystal.prototype.ee,
 
+		handleEvent: function(e) {
+			var allValid = true;
+
+			for(var field in this.crystallizedFields) {
+				if(this.crystallizedFields[field].config.lastState == false) {
+					allValid = false;
+				}
+			}
+
+			if(allValid) {
+				this.ee.emit("form-" + this.rawSelf.dataset.crystalId + '-valid', this.rawSelf)
+			} else {
+				e.preventDefault();
+				this.ee.emit("form-" + this.rawSelf.dataset.crystalId + '-invalid', this.rawSelf)
+				}
+		},
+
 		/**
 		 * Watches for submit event, then checks if all fields are valid.
-		 * @param {DOM object} [formEl] raw form DOM object
-		 * @param  {EventEmitter} [ee] EventEmitter 
 		 */
-		watch: function(formEl) {
-			formEl.addEventListener('submit', function(e) {
-				var allValid = true;
-
-				for(var field in this.crystallizedFields) {
-					if(this.crystallizedFields[field].config.lastState == false) {
-						allValid = false;
-					}
-				}
-
-				if(allValid) {
-					this.ee.emit("form-" + formEl.dataset.crystalId + '-valid', formEl)
-				} else {
-					e.preventDefault();
-					this.ee.emit("form-" + formEl.dataset.crystalId + '-invalid', formEl)
-				}
-			}.bind(this), false);
+		watch: function() {
+			this.rawSelf.addEventListener('submit', this, false);
 		},
 
 		/**
@@ -221,26 +235,28 @@
 		
 		/**
 		 * Adds the given DOM element to both rawFields and 
-		 * @param {DOM object} [fieldEL] The field element 
+		 * @param {DOM object} [fieldEl] The field element 
 		 */
-		addField: function(fieldEL) {
+		addField: function(fieldEl) {
 			var attribute;
 
-			if (fieldEL.dataset.crystal == undefined) {
+			if (fieldEl.dataset.crystal == undefined) {
 				console.log("Field element's \"data-crystal\" property must be defined.");
 				return;
 			} else {
 				attribute = fieldEl.dataset.crystal;
 			}
 			
-			this.rawFields.push(fieldEL);
-			this.crystallizedFields[attribute] = new CrystalField(fieldEL);
+			this.rawFields.push(fieldEl);
+			this.crystallizedFields[attribute] = new CrystalField(fieldEl);
 		},
 
 		/**
 		 * Properly destorys a CrystalForm
 		 */
 		selfDestruct: function() {
+			this.rawSelf.removeEventListener('submit', this, false);
+
 			for(var field in this.crystallizedFields){
 				this.crystallizedFields[field].selfDestruct();
 			}
@@ -255,12 +271,12 @@
 	 * @param {regex literal} [regex] Regex literal to test input value agains. You want this to match valid input
 	 * @param {input|blur} [trigger] Event that determines when fields are checked for validity. Defaults to "input".
 	 */
-	function CrystalField(fieldEL, fieldConfig) {
+	function CrystalField(fieldEl, fieldConfig) {
 		var _init;
 
 		this.defaults = {
-			attribute: fieldEL.dataset.crystal,
-			domOBJ: fieldEL,
+			attribute: fieldEl.dataset.crystal,
+			domOBJ: fieldEl,
 			regex: /[\s\S]*/,
 			lastState: false,
 			timesActive: 0,
@@ -269,35 +285,33 @@
 
 		this.config = CrystalField.augment({}, this.defaults, fieldConfig || {});
 
-		this.isValid = {
-			/**
-			 * Checks if the input is valid
-			 * @return {Boolean} if the input is valid returns true, else it returns false
-			 */
-			handleEvent: function(event) {
-				if (this.config.regex.test(this.config.domOBJ.value)) {
-					this.config.domOBJ.className = this.config.domOBJ.className.replace( /(?:^|\s)crystal-invalid(?!\S)/g , '')
-					this.config.lastState = true;
-					return true;
-				} else {
-						this.config.domOBJ.className += " crystal-invalid";
-						this.config.lastState = false;
-						return false;
-					}
-			}.bind(this)
-		};
-
 		_init = (function () {
 			// make sure trigger option is legit
 			if(this.config.trigger !== "input" && this.config.trigger !== "blur") {
 				this.config.trigger = this.defaults.trigger;
 			}
 
-			this.config.domOBJ.addEventListener(this.config.trigger, this.isValid, false);
+			this.config.domOBJ.addEventListener(this.config.trigger, this, false);
 		}.bind(this))();
 	} // end CrystalField
 
 	CrystalField.prototype = {
+		/**
+		 * Checks if the input is valid
+		 * @return {Boolean} if the input is valid returns true, else it returns false
+		 */
+		handleEvent: function(event) {
+			if (this.config.regex.test(this.config.domOBJ.value)) {
+				this.config.domOBJ.className = this.config.domOBJ.className.replace( /(?:^|\s)crystal-invalid(?!\S)/g , '')
+				this.config.lastState = true;
+				return true;
+			} else {
+					this.config.domOBJ.className += " crystal-invalid";
+					this.config.lastState = false;
+					return false;
+				}
+		},
+
 		/**
 		 * How many times the function was active
 		 * @return {int} how many time the element has been active
@@ -315,7 +329,7 @@
 		 * Properly destroys a CrystalField
 		 */
 		selfDestruct: function() {
-			this.config.domOBJ.removeEventListener(this.config.trigger, this.isValid, false);
+			this.config.domOBJ.removeEventListener(this.config.trigger, this, false);
 		}
 	} // end CrystalField.prototype
 
