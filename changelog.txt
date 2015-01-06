@@ -1,19 +1,51 @@
 Changelog
-----12-13-14 0.1.3----
-- Introduceds BREAKING CHANGES
+----TBD v0.2.0----
+- Introduces BREAKING CHANGES
+- Multiple Form Support
+- Much more efficient thanks to reduction of long loops
+- No longer provide submit functions, replaced with event emitter
+
+----12-27-14 v0.1.9----
+- Unofficial release
+- Minor bug fixes
+
+----12-26-14 v0.1.8----
+- Unofficial release
+- Minor bug fixes
+
+----12-24-14 v0.1.7----
+- Unofficial release
+- Minor bug fixes
+
+----12-21-14 v0.1.6----
+- Unofficial release
+- Minor bug fixes
+
+----12-17-14 v0.1.5----
+- Unofficial release
+- Minor bug fixes
+
+----12-15-14 v0.1.4----
+- Unofficial release
+- Minor bug fixes
+
+----12-13-14 v0.1.3----
+- Introduces BREAKING CHANGES
 - Major code refactor
     - Reduced number of global variables
     - Implemented modular pattern
     - Added support for script loader
-----11-22-14 0.1.2----
-- Changed object names to match plugin name
-----11-12-14 0.1.1----
-- Minor change
-    - Removed expected repsonse type from AJAX request
 
-----11-21-14 0.1.0----
-- Name Changed to crystal.js from chivlary.js
-- Version to 0.1.0 to signify major change
+----11-22-14 v0.1.2----
+- Changed object names to match plug-in name
+
+----11-12-14 v0.1.1----
+- Minor change
+    - Removed expected response type from AJAX request
+
+----11-21-14 v0.1.0----
+- Name Changed to Crystal.js from chivlary.js
+- Version to v0.1.0 to signify major change
 - No Jquery required anymore, pure JS
 	- Pure JS ajax form
 	- Pure JS element styling
