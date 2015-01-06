@@ -7,10 +7,12 @@
  */
 
 (function(window, document, undefined) { 'use strict';
+
 	/**
 	 * Crystal.js is a inline/live form validator boilerplate
 	 * written in pure javascript. No jQuery. ALWAYS USE SERVER SIDE VALIDATION TOO!
-	 * @param {el} The parent DOM element of all form elements that will be crystallized
+	 * @param {Boolean} [devMode] NOT YET SUPOPRTED
+	 * @param {HTML Element} The parent DOM element of all form elements that will be crystallized
 	 */
 	function Crystal(devMode, el) {
 		var _init;
@@ -68,7 +70,7 @@
 
 		/**
 		 * Adds the given element to the rawCrystalForms array
-		 * @param {[type]} formEl [description]
+		 * @param {HTML Element} [formEl] The raw html element to add
 		 */
 		addCrystalForm: function(formEl) {
 			var last;
@@ -155,8 +157,8 @@
 		 * Properly destroys Crystal. Removes event listeners and etc.
 		 */
 		selfDestruct: function() {
-			for(var id = 0; id < this.crystallized.length; i++) {
-				this.removeCrystalForm(id);
+			while(this.crystallized.length > 0) {
+				this.popCrystalForm();
 			}
 		}
 	} // End Crystal.prototype
@@ -197,8 +199,10 @@
 			var allValid = true;
 
 			for(var field in this.crystallizedFields) {
-				if(this.crystallizedFields[field].config.lastState == false) {
-					allValid = false;
+				if(this.crystallizedFields.hasOwnProperty(field)) {
+					if(this.crystallizedFields[field].config.lastState == false) {
+						allValid = false;
+					}
 				}
 			}
 
@@ -258,7 +262,9 @@
 			this.rawSelf.removeEventListener('submit', this, false);
 
 			for(var field in this.crystallizedFields){
-				this.crystallizedFields[field].selfDestruct();
+				if(this.crystallizedFields.hasOwnProperty(field)) {
+					this.crystallizedFields[field].selfDestruct();
+				}
 			}
 		}
 	} // end CrystalForm.prototype
@@ -291,6 +297,8 @@
 				this.config.trigger = this.defaults.trigger;
 			}
 
+			this.active();
+
 			this.config.domOBJ.addEventListener(this.config.trigger, this, false);
 		}.bind(this))();
 	} // end CrystalField
@@ -316,13 +324,11 @@
 		 * How many times the function was active
 		 * @return {int} how many time the element has been active
 		 */
-		wasActive: function() {
-			if(this.config.domOBJ == document.activeElement) {
+		active: function() {
+			if(this.config.domOBJ == document.activeElement){
 				this.config.timesActive++;
-				return this.config.timesActive;
-			} else {
-					return this.config.timesActive;
 			}
+			return this.config.timesActive;
 		},
 
 		/**
