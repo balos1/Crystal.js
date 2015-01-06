@@ -1,3 +1,7 @@
+/******************
+    Universal
+*****************/
+
 h1, h2, h3, h4, h5, h6 {
 	font-weight: 400;
 	@media #{$medium-up} {
@@ -6,14 +10,58 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 
+h2, h3 {
+    color: $secondary-color;
+}
+
+code {
+    background-color: darken($body-bg, 5%);
+    border: none;
+}
+
+pre {
+    white-space: pre;
+    background-color: darken($body-bg, 5%);
+    margin-bottom: 2.5%;
+}
+
 textarea {
-	resize: both;
-	width: 100%;
+    resize: both;
+    width: 100%;
 }
 textarea.message {
-	height: 13em;
+    height: 13em;
 }
+
+.center {
+    text-align: center;
+}
+
+.full-width {
+    width: 100%;
+}
+
+
 
 .crystal-invalid {
   border: 2px solid $warning-color !important;
+}
+
+pre.inline {
+	display: inline-flex;
+}
+
+.button {
+    color: $black;
+    border: 2px solid $primary-color;
+    background-color: transparent;
+    @extend .full-width;
+}
+
+/******************
+    Form
+*****************/
+
+#sent, #not-valid {
+    display: none;
 }

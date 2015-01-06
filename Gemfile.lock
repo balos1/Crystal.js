@@ -11,7 +11,7 @@ GEM
     blankslate (2.1.2.4)
     celluloid (0.16.0)
       timers (~> 4.0.0)
-    classifier-reborn (2.0.2)
+    classifier-reborn (2.0.3)
       fast-stemmer (~> 1.0)
     coffee-script (2.3.0)
       coffee-script-source
@@ -90,7 +90,7 @@ GEM
       rb-inotify (>= 0.9)
     maruku (0.7.0)
     mercenary (0.3.5)
-    mini_portile (0.6.1)
+    mini_portile (0.6.2)
     minitest (5.5.0)
     net-dns (0.8.0)
     nokogiri (1.6.5)

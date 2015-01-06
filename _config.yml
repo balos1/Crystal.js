@@ -1,13 +1,25 @@
 name : Crystal.js
 brand : cojomojo
+brandurl: https://github.com/cojomojo
 description : A lightweight Javascript live/inline form validator.
 keyword: Form Validation
-url : http://cojomojo.github.io/crystal.js/
+url : http://cojomojo.github.io/Crystal.js/
+baseurl: /Crystal.js
 imageurl: 
 email : cody@functioncreate.com
 twitter : functioncreate
 github : cojomojo
 author: Cody Balos
-analytics: 
+analytics: UA-46434731-3
 year: 2014
-markdown: kramdown
+
+
+# ---------------#
+#    Markdown    #
+# ---------------#
+markdown: redcarpet
+
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript","tables", "with_toc_data"]
+
+highlighter: pygments

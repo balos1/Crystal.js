@@ -2,7 +2,7 @@
  * Crystal.js
  * https://github.com/cojomojo/crystal.js
  *
- * Copyright (c) 2014 Cody Balos
+ * Copyright (c) 2015 Cody Balos
  * Licensed under the MIT license.
  */
 
@@ -10,203 +10,305 @@
 
 	/**
 	 * Crystal.js is a inline/live form validator boilerplate
-	 * written in pure javascript. No jQuery.
-	 * @param {config} config object takes the following
-	 * @param {string} [formID] the form HTML ID without the '#'
-	 * @param {boolean} [ajaxSubmit] will the form be submitted via ajax
+	 * written in pure javascript. No jQuery. ALWAYS USE SERVER SIDE VALIDATION TOO!
+	 * @param {Boolean} [devMode] NOT YET SUPOPRTED
+	 * @param {HTML Element} The parent DOM element of all form elements that will be crystallized
 	 */
-	function Crystal(config) { 
-		var init;
+	function Crystal(devMode, el) {
+		var _init;
 
-		this.defaults = {
-			formID: "crystal-form",
-			ajaxSubmit: false,
-			// css: {},
-			fields: {}	
-		};
+		// if(devMode)  crystalTest();
 
-		this.config = Crystal.augment({}, this.defaults, config || {});
+		el = (typeof el === "undefined") ? document : el;
 
-		// private
-		init = (function() {
-			var ajaxSubmitForm = this.ajaxSubmitForm.bind(this),
-					standardSubmitForm = this.standardSubmitForm.bind(this);
+		this.rawCrystalForms = [].slice.call(el.getElementsByTagName('form'));
+		this.crystallized = [];
 
-			this.config.ajaxSubmit ? ajaxSubmitForm() : standardSubmitForm();
+		_init = (function() {
+			for(var i = 0; i < this.rawCrystalForms.length; i++) {
+				this.rawCrystalForms[i].dataset.crystalId = i+1;
+
+				this.crystallized.push(new CrystalForm(this.rawCrystalForms[i]));
+			}
 		}.bind(this))();
-	}; // end Crystal
-
+	}
 
 	Crystal.prototype = {
+		ee: new EventEmitter(),
+
+		/**
+		 * Pops the last element of the rawCrystalForms array
+		 */
+		popCrystalForm: function() {
+			var last = this.crystallized.length - 1;
+
+			this.crystallized[last].selfDestruct();
+
+			this.rawCrystalForms.pop();
+			this.crystallized.pop();
+		},
+
+		/**
+		 * TODO: Add support for passing an array of id's to be removed
+		 * 
+		 * Removes the given element from the rawCrystalForms and crystallized array
+		 * @param  {integer} [id] the "data-crystal-id" of the element to be removed
+		 */
+		removeCrystalForm: function(id) {
+			this.rawCrystalForms[id-1].removeAttribute("data-crystal-id");
+
+			this.crystallized[id-1].selfDestruct();
+
+			this.rawCrystalForms.splice(id-1, 1);
+			this.crystallized.splice(id-1, 1);
+
+			// reset the crystal data attribute
+			for(var i = 0; i < this.rawCrystalForms.length; i++) {
+				this.rawCrystalForms[i].dataset.crystalId = i+1;
+			}
+		},
+
+		/**
+		 * Adds the given element to the rawCrystalForms array
+		 * @param {HTML Element} [formEl] The raw html element to add
+		 */
+		addCrystalForm: function(formEl) {
+			var last;
+
+			this.rawCrystalForms.push(formEl);
+			last = this.rawCrystalForms.length - 1;
+
+			console.log(this.rawCrystalForms[last]);
+
+			this.crystallized.push(new CrystalForm(this.rawCrystalForms[last]));
+
+			// reset the crystal data attribute
+			for(var i = 0; i < this.rawCrystalForms.length; i++) {
+				this.rawCrystalForms[i].dataset.crystalId = i+1;
+			}
+		},
+
+		/**
+		 * TODO: Add support for passing an array of id's to be retrieved and returned
+		 * 
+		 * Returns a form
+		 * @param  {integer} [id] the "data-crystal-id" of the element to get
+		 * @return {CrystalForm} the form corresponding to the "data-crystal-id"
+		 */
+		getCrystalForm: function(id) {
+			return this.crystallized[id-1];
+		},
 		
 		/**
-		 * Adds a field to the fields object.
-		 * @type {config} See Field class for more details.
+		 * TODO: Add support for passing an array of id's and attributes to be removed
+		 * 
+		 * Removes a field from the rawFields array
+		 * @param  {integer} [id] the "data-crystal-id" of the element to get
+		 * @param  {string} [attribute] the "data-crystal" value of th element
 		 */
-		addField: function(fieldConfig) {
-			var aField = new Field(fieldConfig);
-			this.config.fields[aField.config.commonName] = aField;
+		removeCrystalField: function(id, attribute) {
+			this.getCrystalForm(id).removeField(attribute);
+		},
+
+		/**s
+		 * Adds the given DOM element to both rawFields and 
+		 * @param {DOM object} [fieldEl] The field element 
+		 */
+		addCrystalField: function(id, fieldEl) {
+			this.getCrystalForm(id).addField(fieldEl);
 		},
 
 		/**
-		 * Take care of the styling
-		 * @param  {boolean} [submitted] was the for succesfully submitted
+		 * TODO: Add support for passing an array of id's to be retrieved and returned
+		 * 
+		 * Returns a field from a form
+		 * @param  {integer} [id] the "data-crystal-id" of the element to get
+		 * @param  {string} [attribute] the "data-crystal" value of th element
+		 * @return {CrystalField} Reference to the field of the form
 		 */
-		style: function(submitted) {
-			var alertSuccess = document.querySelectorAll(".crystal-alert-success"),
-					alertInvalid = document.querySelectorAll(".crystal-alert-invalid"),
-					invalid = document.querySelectorAll(".crystal-invalid"),
-					required = document.querySelectorAll(".crystal-required");
-
-			if(submitted) {
-				for(var i = 0; i < invalid.length; i++){
-					invalid[i].className.replace( /(?:^|\s)invalid(?!\S)/g , '');		
-				}	
-				for(var i = 0; i < alertInvalid.length; i++){
-					alertInvalid[i].style.display = 'none';
-				}
-				for(var i = 0; i < alertSuccess.length; i++){
-					alertSuccess[i].style.display = 'block';
-				}
-			}
-			else {
-				for(var i = 0; i < alertInvalid.length; i++) {
-					alertInvalid[i].style.display = 'block';
-				}
-				for(var i = 0; i < required.length; i++) {
-					required[i].className += " crystal-invalid";					
-				}
-			}
-		},		
+		getCrystalField: function(id, attribute) {
+			return this.getCrystalForm(id).crystallizedFields[attribute];
+		},
 
 		/**
-		 * Allow for the form to submit via ajax
+		 * Sets the configurable parts of the CrystalField
+		 * @param {int | int array | "all"} [id] the "data-crystal-id"(s) of the element(s) to set the config for
+		 * @param {string} the "data-crystal" value you want to create validation for
+		 * @param {config} a config which can take the paramters of a CrystalField
 		 */
-		ajaxSubmitForm: function() {
-			document.getElementById(this.config.formID).addEventListener('submit',
-				function(e) {
-					var valid, form, xhr;
-					// prevent submisison for now
-					e.preventDefault();
+		setCrystalFieldConfig: function(id, attribute, config) {
+			if(typeof id == "number") {
+				this.getCrystalField(id, attribute).config = CrystalField.augment({}, this.getCrystalField(id, attribute).defaults, config || {});
+			} 
+			else if(id == "all") {
+				for(var i = 0; i < this.crystallized.length; i++) {
+					this.crystallized[i].crystallizedFields[attribute].config = 
+						CrystalField.augment({}, this.crystallized[i].crystallizedFields[attribute].defaults, config || {});
+				}
+			} else {
+				for(var i = 0; i < id.length; i++) {
+					this.getCrystalField(id[i], attribute).config = 
+						CrystalField.augment({}, this.getCrystalField(id[i], attribute).defaults, config || {});
+				}
+			}
+		},
 
-					valid = true;
-
-					for(var field in this.config.fields) {
-						if(this.config.fields[field].config.lastState === false) {
-							valid = false;
-						} 
-					}
-
-					if(valid) {
-						form = serialize(document.getElementById(this.config.formID));
-
-						xhr = new XMLHttpRequest();
-						xhr.open('POST', '/', true);
-						xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-						xhr.onreadystatechange = function () {
-							if(xhr.readyState != 4 ||  xhr.status != 200){
-								return;
-							}
-							else {
-								this.style(true);
-							}
-						}.bind(this);
-						xhr.send(form);
-					}
-					else {
-						this.style(false);
-					}
-				}.bind(this));
-			},
-
-		standardSubmitForm: function() {
-			document.getElementById(this.config.formID).addEventListener('submit', 
-				function(e) {
-					var valid;
-
-					valid = true;
-
-					for(var field in this.config.fields) {
-						if(this.config.fields[field].config.lastState === false) {
-							valid = false;
-						} 
-					}
-					
-					if(!valid) {
-						e.preventDefault();
-						this.style(false);
-						this.standardSubmitForm();
-					}
-				}.bind(this));			
+		/**
+		 * Properly destroys Crystal. Removes event listeners and etc.
+		 */
+		selfDestruct: function() {
+			while(this.crystallized.length > 0) {
+				this.popCrystalForm();
+			}
 		}
+	} // End Crystal.prototype
+	
+	/**
+	 * CrystalForm Class
+	 * @param {DOM object} [formEl] raw form DOM object
+	 * @param {config} config object takes the following
+	 * @param {object} [rawFields] an object of DOM objects (input/textarea elements) to be used as "fields"
+	 */
+	function CrystalForm(formEl) { 
+		var _init;
 
-	} // end Crystal.prototype
+		this.rawSelf = formEl;
+		this.rawFields = [].slice.call(this.rawSelf.querySelectorAll("input, textarea"));
+		this.crystallizedFields = {};
+
+		_init = (function() {
+			for(var i = 0; i < this.rawFields.length; i++) {
+				if(this.rawFields[i].dataset.crystal != undefined) {
+					var attribute = this.rawFields[i].dataset.crystal;
+
+					this.crystallizedFields[attribute] = new CrystalField(this.rawFields[i]);
+				} else {
+					this.rawFields.splice(i, 1);
+				}
+			}
+
+			this.watch();
+		}.bind(this))();
+	}; // end CrystalForm
+
+
+	CrystalForm.prototype = {
+		ee: Crystal.prototype.ee,
+
+		handleEvent: function(e) {
+			var allValid = true;
+
+			for(var field in this.crystallizedFields) {
+				if(this.crystallizedFields.hasOwnProperty(field)) {
+					if(this.crystallizedFields[field].config.lastState == false) {
+						allValid = false;
+					}
+				}
+			}
+
+			if(allValid) {
+				this.ee.emit("form-" + this.rawSelf.dataset.crystalId + '-valid', this.rawSelf)
+			} else {
+				e.preventDefault();
+				this.ee.emit("form-" + this.rawSelf.dataset.crystalId + '-invalid', this.rawSelf)
+				}
+		},
+
+		/**
+		 * Watches for submit event, then checks if all fields are valid.
+		 */
+		watch: function() {
+			this.rawSelf.addEventListener('submit', this, false);
+		},
+
+		/**
+		 * Removes a field from the rawFields array
+		 * @param  {id} [id] the array posistion of the field
+		 */
+		removeField: function(attribute) {
+			this.crystallizedFields[attribute].selfDestruct();
+
+			for(var i = 0; i < this.rawFields.length; i++) {
+				if(this.crystallizedFields[attribute].domOBJ === this.rawFields[i]) {
+					this.rawFields.splice(i, 1);
+				}
+			}
+
+			delete this.crystallizedFields[attribute];
+		},
+		
+		/**
+		 * Adds the given DOM element to both rawFields and 
+		 * @param {DOM object} [fieldEl] The field element 
+		 */
+		addField: function(fieldEl) {
+			var attribute;
+
+			if (fieldEl.dataset.crystal == undefined) {
+				console.log("Field element's \"data-crystal\" property must be defined.");
+				return;
+			} else {
+				attribute = fieldEl.dataset.crystal;
+			}
+			
+			this.rawFields.push(fieldEl);
+			this.crystallizedFields[attribute] = new CrystalField(fieldEl);
+		},
+
+		/**
+		 * Properly destorys a CrystalForm
+		 */
+		selfDestruct: function() {
+			this.rawSelf.removeEventListener('submit', this, false);
+
+			for(var field in this.crystallizedFields){
+				if(this.crystallizedFields.hasOwnProperty(field)) {
+					this.crystallizedFields[field].selfDestruct();
+				}
+			}
+		}
+	} // end CrystalForm.prototype
 
 	/**
-	 * Field Class
-	 * @param {config} [fieldConfig] config options for a field, takes params below
-	 * @param {string} [fieldID] the field ID selector without the '#'
-	 * @param {string} [commonName] human readable name
-	 * @param {regex} [regex] Regex literal to test input value
-	 * @param {oninput|onblur} [trigger] Event that determines when fields are checked for validity
+	 * CrystalField Class
+	 * @param {DOM object} [fieldEl] raw "form field" DOM object
+	 * @param {config} [fieldConfig] config options for a field, takes following params
+	 * @param {string} [attribute] the fields "data-crystal" value
+	 * @param {regex literal} [regex] Regex literal to test input value agains. You want this to match valid input
+	 * @param {input|blur} [trigger] Event that determines when fields are checked for validity. Defaults to "input".
 	 */
-	function Field(fieldConfig) {
-		var init;
+	function CrystalField(fieldEl, fieldConfig) {
+		var _init;
 
 		this.defaults = {
-			fieldID: "",
-			domOBJ: null,
-			commonName: this.fieldID,
-			regex: null,
+			attribute: fieldEl.dataset.crystal,
+			domOBJ: fieldEl,
+			regex: /[\s\S]*/,
 			lastState: false,
 			timesActive: 0,
-			trigger: "oninput"
+			trigger: "input"
 		};
 
-		this.config = Field.augment({}, this.defaults, fieldConfig || {});
+		this.config = CrystalField.augment({}, this.defaults, fieldConfig || {});
 
-		// make sure trigger option is legit
-		if(this.config.trigger !== "oninput" && this.config.trigger !== "onblur") {
-			this.config.trigger = this.defaults.trigger;
-		}
+		_init = (function () {
+			// make sure trigger option is legit
+			if(this.config.trigger !== "input" && this.config.trigger !== "blur") {
+				this.config.trigger = this.defaults.trigger;
+			}
 
-		// private
-		init = (function (trigger, ID){
-			this.config.domOBJ = this.setDomOBJ(ID);
+			this.active();
 
-			this.config.domOBJ[trigger] = this.isValid.bind(this); 
-		}.bind(this))(this.config.trigger, this.config.fieldID)
+			this.config.domOBJ.addEventListener(this.config.trigger, this, false);
+		}.bind(this))();
+	} // end CrystalField
 
-	} // end Field
-
-	Field.prototype = {
-		/**
-		 * Sets the config variable domOBJ
-		 * @param {string} [ID] the input elements ID without the '#'
-		 * @return {DOM Obj} the DOM object represented by this field
-		 */
-		setDomOBJ: function(ID) {
-			return document.getElementById(ID);
-		},
-
-		// /**
-		//  * How many times the function was active
-		//  * @return {int} how many time the element has been active
-		//  */
-		// wasActive: function() {
-		// 	if(this.config.domOBJ == document.activeElement) {
-		// 		this.config.timesActive++;
-		// 		return this.config.timesActive;
-		// 	} else {
-		// 			return this.config.timesActive;
-		// 	}
-		// },
-
+	CrystalField.prototype = {
 		/**
 		 * Checks if the input is valid
 		 * @return {Boolean} if the input is valid returns true, else it returns false
 		 */
-		isValid: function() {
+		handleEvent: function(event) {
 			if (this.config.regex.test(this.config.domOBJ.value)) {
 				this.config.domOBJ.className = this.config.domOBJ.className.replace( /(?:^|\s)crystal-invalid(?!\S)/g , '')
 				this.config.lastState = true;
@@ -216,60 +318,157 @@
 					this.config.lastState = false;
 					return false;
 				}
+		},
+
+		/**
+		 * How many times the function was active
+		 * @return {int} how many time the element has been active
+		 */
+		active: function() {
+			if(this.config.domOBJ == document.activeElement){
+				this.config.timesActive++;
+			}
+			return this.config.timesActive;
+		},
+
+		/**
+		 * Properly destroys a CrystalField
+		 */
+		selfDestruct: function() {
+			this.config.domOBJ.removeEventListener(this.config.trigger, this, false);
 		}
-	} // end Field.prototype
+	} // end CrystalField.prototype
 
-  /**
-   * augments the source object `augmented` by copying all of the properties from
-   * the `source` object(s) to `augmented`. You can specify multiple `source` objects.
-   * @function
-   * @param {Object} [augmented] Destination object.
-   * @param {...Object} [source] Source object(s).
-   * @returns {Object} Reference to `augmented`.
-   */
-  function augment(augmented, source) {
-    each(arguments, function(object) {
-      if (object !== augmented) {
-        each(object, function(value, key){
-          augmented[key] = value;
-        });
-      }
-    });
-    return augmented;
-  }
-  Crystal.augment = augment;
-  Field.augment = augment;
+	/**
+	* augments the source object `augmented` by copying all of the properties from
+	* the `source` object(s) to `augmented`. You can specify multiple `source` objects.
+	* @function
+	* @param {Object} [augmented] Destination object.
+	* @param {...Object} [source] Source object(s).
+	* @returns {Object} Reference to `augmented`.
+	*/
+	function augment(augmented, source) {
+		each(arguments, function(object) {
+		  if (object !== augmented) {
+			each(object, function(value, key) {
+			  augmented[key] = value;
+			});
+		  }
+		});
+		return augmented;
+	}
+	CrystalField.augment = augment;
 
-  /**
-   * Iterate each element of an object. Useful for copying objects/arrays or comparing.
-   * @function
-   * @param {Array|Object} [object] object or an array to iterate
-   * @param {Function} [callback] first argument is a value and second is a key.
-   * @param {Object=} [context] Object to become context (`this`) for the iterator function.
-   */
-  function each(object, callback, context) {
-  	var key;
+	/**
+	* Iterate each element of an object. Useful for copying objects/arrays or comparing.
+	* @function
+	* @param {Array|Object} [object] object or an array to iterate
+	* @param {Function} [callback] first argument is a value and second is a key.
+	* @param {Object=} [context] Object to become context (`this`) for the iterator function.
+	*/
+	function each(object, callback, context) {
+		var key;
 
-    if (!object) {
-      return ;
-    }
- 
-    // Check to see if arg passed is an array
-    if (typeof(object.length) !== "undefined") {
-      for (key = 0; key < object.length; key++) {
-        if (callback.call(context, object[key], key) === false) {
-          return ;
-        }
-      }
-    } else {
-      for (key in object) {
-        if (object.hasOwnProperty(key) && callback.call(context, object[key], key) === false) {
-          return ;
-        }
-      }
-    }
-  }
+		if (!object) {
+		  return ;
+		}
 
+		// Check to see if arg passed is an array
+		if (typeof(object.length) !== "undefined") {
+		  for (key = 0; key < object.length; key++) {
+			if (callback.call(context, object[key], key) === false) {
+			  return ;
+			}
+		  }
+		} else {
+		  for (key in object) {
+			if (object.hasOwnProperty(key) && callback.call(context, object[key], key) === false) {
+			  return ;
+			}
+		  }
+		}
+	}
+
+	/**
+	 * tiny-events thanks to Björn Brauer
+	 * Copyright (c) 2014 Björn Brauer
+	 * https://github.com/ZauberNerd/tiny-events
+	 */
+	function EventEmitter() {
+	    this._listeners = {};
+	}
+
+	EventEmitter.prototype.on = function _on(type, listener) {
+	    if (!Array.isArray(this._listeners[type])) {
+	        this._listeners[type] = [];
+	    }
+
+	    if (this._listeners[type].indexOf(listener) === -1) {
+	        this._listeners[type].push(listener);
+	    }
+
+	    return this;
+	};
+
+	EventEmitter.prototype.once = function _once(type, listener) {
+	    var self = this;
+
+	    function __once() {
+	        for (var args = [], i = 0; i < arguments.length; i += 1) {
+	            args[i] = arguments[i];
+	        }
+
+	        self.off(type, __once);
+	        listener.apply(self, args);
+	    }
+
+	    __once.listener = listener;
+
+	    return this.on(type, __once);
+	};
+
+	EventEmitter.prototype.off = function _off(type, listener) {
+	    if (!Array.isArray(this._listeners[type])) {
+	        return this;
+	    }
+
+	    if (typeof listener === 'undefined') {
+	        this._listeners[type] = [];
+	        return this;
+	    }
+
+	    var index = this._listeners[type].indexOf(listener);
+
+	    if (index === -1) {
+	        for (var i = 0; i < this._listeners[type].length; i += 1) {
+	            if (this._listeners[type][i].listener === listener) {
+	                index = i;
+	                break;
+	            }
+	        }
+	    }
+
+	    this._listeners[type].splice(index, 1);
+	    return this;
+	};
+
+	EventEmitter.prototype.emit = function _emit(type) {
+	    if (!Array.isArray(this._listeners[type])) {
+	        return this;
+	    }
+
+	    for (var args = [], i = 1; i < arguments.length; i += 1) {
+	        args[i - 1] = arguments[i];
+	    }
+
+	    this._listeners[type].forEach(function __emit(listener) {
+	        listener.apply(this, args);
+	    }, this);
+
+	    return this;
+	};
+
+	// Create module for loaders
 	if (typeof module === "object" && module && typeof module.exports === "object") {
 		
 		// Expose Crystal for loaders that implement the node module pattern
@@ -279,7 +478,29 @@
 
 		// Register as a named AMD module
 		if (typeof define === "function" && define.amd) {
-      define( "crystal", [], function () { return Crystal; } );
-    }
+	  		define( "crystal", [], function () { return Crystal; } );
+		}
 	}
 })(window, document);
+
+/////////// Implementation /////////////
+var crystal = new Crystal();
+
+crystal.setCrystalFieldConfig("all", "name", {
+	regex: /^(?!\s*$).+/
+});
+crystal.setCrystalFieldConfig("all", "email", {
+	//regex: /^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*$/
+	regex: /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/
+});
+crystal.setCrystalFieldConfig("all", "message", {
+	regex: /^(?!\s*$).+/
+});
+
+crystal.ee.on("form-1-valid", function(el) {
+	alert("Message Sent");
+});
+	
+crystal.ee.on("form-1-invalid", function(el) {
+	document.getElementById("not-valid").style.display = "block";
+});

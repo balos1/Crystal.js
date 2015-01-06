@@ -1,0 +1,229 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Crystal.js - Crystal.js</title>
+    <meta name="description" content="Crystal.js - Crystal.js" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords" content="form validation, crystal.js, " />
+
+    <!-- CSS  Get: http://www.google.com/fonts/
+    http://stackoverflow.com/questions/7985081/how-to-deploy-a-jekyll-site-locally-with-css-js-and-background-images-included
+    ================================================== -->
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,200,700" rel="stylesheet" type="text/css">
+    <!-- Fount Awesome -->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <!-- Ah, the favicon.
+    ================================================== -->
+    <link rel="shortcut icon" href="../favicon.ico">
+
+    <!-- Open Graph: https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content/
+    Twitter: https://dev.twitter.com/docs/cards/types/summary-card
+    ============================== -->
+    <meta property="og:title" content="Crystal.js"/>
+    <meta property="og:site_name" content=" - Crystal.js"/>
+    <meta property="og:url" content=" - http://cojomojo.github.io/Crystal.js/"/>
+    <meta property="og:description" content="Pure Javascript Inline Form Validation"/>
+    <meta property="og:image" content=""/>
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@functioncreate">
+    <meta name="twitter:title" content="Crystal.js">
+    <meta name="twitter:description" content="Pure Javascript Inline Form Validation">
+    <meta name="twitter:image" content="">
+  
+    <!-- modernizr
+    ================================================== -->
+    <script src="../bower_components/modernizr/modernizr.js"></script>
+  </head>
+  <body>
+    <a id="top"></a>
+
+
+    <div class="off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap"> 
+        <!-- Add header and nav here  -->
+        
+            <!--[if lt IE 8]>
+                <div data-alert class="alert-box alert radius" class="browsehappy">Please <a href="http://browsehappy.com/">upgrade your browser</a>. <a href="#" class="close">&times;</a></div>
+            <![endif]-->
+
+        <header id="header" class="row">
+
+            <div class="small-12 columns">
+                <section class="right show-for-medium-up mam">
+                    <ul class="inline-list">
+                        <li><a href="http://cojomojo.github.io/Crystal.js/">Home</a></li>
+<li><a href="/#why">Why</a></li>
+<li><a href="/#updates">What's New</a></li>
+<li><a href="/tutorial">Tutorial</a></li>
+<li><a href="https://github.com/cojomojo/crystal.js/wiki">Wiki</a></li>
+<li><a href="https://github.com/cojomojo/crystal.js">Download On GitHub</a></li>
+
+
+<!-- <li><iframe src="http://ghbtns.com/github-btn.html?user=cojomojo&repo=crystal.js&type=watch&count=true&size=large"
+	allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe></li>
+<li><iframe src="http://ghbtns.com/github-btn.html?user=cojomojo&repo=crystal.js&type=fork&size=large"
+  allowtransparency="true" frameborder="0" scrolling="0" width="100" height="30"></iframe></li>
+<li><iframe src="http://ghbtns.com/github-btn.html?user=cojomojo&type=follow&size=large"
+	allowtransparency="true" frameborder="0" scrolling="0" width="180" height="30"></iframe></li> -->
+                    </ul>
+                </section>
+
+                <section class="right show-for-small">
+                    <ul class="inline-list mam">
+                    <li>
+                        <a class="right-off-canvas-toggle"><i class="fa fa-bars fa-lg">
+                        </i></a>
+                    </li>
+                    </ul>
+                </section>
+
+                <h1><a target="_blank" href="https://github.com/cojomojo">cojomojo</a></h1>
+
+            </div>
+        </header>
+
+            <!-- Off Canvas Menu -->
+            <aside class="right-off-canvas-menu">
+                <!-- navigation list goes here -->
+                <ul class="off-canvas-list">
+                   <li><a href="http://cojomojo.github.io/Crystal.js/">Home</a></li>
+<li><a href="/#why">Why</a></li>
+<li><a href="/#updates">What's New</a></li>
+<li><a href="/tutorial">Tutorial</a></li>
+<li><a href="https://github.com/cojomojo/crystal.js/wiki">Wiki</a></li>
+<li><a href="https://github.com/cojomojo/crystal.js">Download On GitHub</a></li>
+
+
+<!-- <li><iframe src="http://ghbtns.com/github-btn.html?user=cojomojo&repo=crystal.js&type=watch&count=true&size=large"
+	allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe></li>
+<li><iframe src="http://ghbtns.com/github-btn.html?user=cojomojo&repo=crystal.js&type=fork&size=large"
+  allowtransparency="true" frameborder="0" scrolling="0" width="100" height="30"></iframe></li>
+<li><iframe src="http://ghbtns.com/github-btn.html?user=cojomojo&type=follow&size=large"
+	allowtransparency="true" frameborder="0" scrolling="0" width="180" height="30"></iframe></li> -->
+                </ul>
+            </aside>
+
+            <!-- Begin Content -->
+            <div class="row container">
+                <div class="large-12 columns">
+                    <h1 class="mvl"><a target="_blank" href="https://github.com/cojomojo/crystal.js">Crystal.js</a>Tutorial</h1>
+
+<!-- Begin Tut -->
+
+<h2 id="getting-started">Getting Started</h2>
+
+<ol>
+<li><p>Download or clone Crystal.js and include it in your HTML markup.</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&#39;text/javascript&#39;</span> <span class="na">src=</span><span class="s">&#39;/path/to/crystal.min.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></li>
+<li><p>Add the necessary HTML markup to input and textarea elements you want to apply Crystal to. You&#39;ll just have to add a data attribute <code>data-crystal</code> with the value begin the kind of field it is (e.g. a name field, email, etc.). You&#39;ll be creating validation rules using this value later on.</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;input</span> <span class="na">data-crystal=</span><span class="s">&quot;name&quot;</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span><span class="nt">&gt;</span>
+</code></pre></div></li>
+<li><p>Add the CSS</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.crystal-invalid</span> <span class="p">{</span>
+    <span class="k">border</span><span class="o">:</span> <span class="m">2px</span> <span class="k">solid</span> <span class="m">#f15b22</span> <span class="cp">!important</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></li>
+<li><p>Instantiate Crystal. The constructor takes one parameter, the parent node for all forms you want to apply Crystal to. By default this is <code>document</code>. </p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">crystal</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Crystal</span><span class="p">();</span>
+<span class="c1">// OR somethiing like this</span>
+<span class="kd">var</span> <span class="nx">crystal</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Crystal</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;demo1&quot;</span><span class="p">));</span>
+</code></pre></div></li>
+</ol>
+
+<h2 id="creating-validation-rules">Creating Validation Rules</h2>
+
+<p>The flexibility of Crystal.js is because it allows for you to define the validation rules. It is very simple, just use the method <code>setCrystalFieldConfig</code>.</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="cm">/**</span>
+<span class="cm"> * Sets the configurable parts of the </span>
+<span class="cm"> * @param {int | int array | &quot;all&quot;} [id] the &quot;data-crystal-id&quot;(s) of the element(s) to set the config for</span>
+<span class="cm"> * @param {string} the &quot;data-crystal&quot; value you want to create validation for</span>
+<span class="cm"> * @param {config} an object with the following params</span>
+<span class="cm"> * @param {regex literal} [regex] Regex literal to test input value agains. You want this to match valid input</span>
+<span class="cm"> * @param {input|blur} [trigger] Event that determines when fields are checked for validity. Defaults to &quot;input&quot;.</span>
+<span class="cm"> */</span>
+<span class="nx">crystal</span><span class="p">.</span><span class="nx">setCrystalFieldConfig</span><span class="p">(</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">regex</span><span class="o">:</span> <span class="sr">/^(?!\s*$).+/</span><span class="p">,</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Check out <a href="https://github.com/cojomojo/Crystal.js/blob/master/validation-examples/common.js">these</a> awesome validation configurations for some common fields like name, email, and message. </p>
+
+<h2 id="using-the-event-emitter">Using the Event Emitter</h2>
+
+<p>The next thing you will want to do is decide what will happen if a user submits a form when fields are valid or invalid. Crystal.js proivdes an event emitter to make handling this easy. Check out this example (setup for this site&#39;s home page):</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">crystal</span><span class="p">.</span><span class="nx">ee</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;form-1-valid&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Message Sent&quot;</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">crystal</span><span class="p">.</span><span class="nx">ee</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;form-1-invalid&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;not-valid&quot;</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s2">&quot;block&quot;</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre></div>
+<p><em>Note that when a form&#39;s submit button is pressed, and a field is invalid, <code>preventDefault()</code>is applied.</em></p>
+
+<p>As you can see, each form emits it&#39;s own event. The events are dynamically named like so &quot;form-(data-crystal-id)-valid&quot; and &quot;form-(data-crystal-id)-invalid&quot;.</p>
+
+<h2 id="going-further">Going Further</h2>
+
+<p>Crystal.js can be very powerful. Check out the <a href="https://github.com/cojomojo/crystal.js/wiki">GitHub Wiki</a> for the complete and in depth documentation.</p>
+      
+                </div>
+            </div>         
+            
+
+            <footer class="site-footer row" role="contentinfo">
+            <hr/>
+              <div class="large-12 columns">
+                <a href="#top">To The Top</a>
+                <p class="quiet copyright right"> <a href="https://twitter.com/functioncreate">
+                    <i class="fa fa-twitter">
+                    </i>
+                 @functioncreate</a>, <a href="https://github.com/cojomojo/">
+                    <i class="fa fa-github">
+                    </i>
+                 @cojomojo</a> 2014.</p>
+              </div>
+            </footer>
+
+
+          <!-- close the off-canvas menu -->
+          <a class="exit-off-canvas"></a>
+
+          </div>
+        </div>
+
+
+        <!-- Loading JavaScripts
+        ================================================== -->
+        <!-- Zepto (http://zeptojs.com/) is great, but I am sticking with jQuery. Sorry! -->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="bower_components/jquery/jquery.js"><\/script>')</script>
+        <script src="../bower_components/underscore/underscore-min.js"></script>
+        <script src="../bower_components/backbone/backbone.js"></script>
+        <script src="../js/plugins.js"></script>
+        <script src="../bower_components/foundation/js/foundation.min.js"></script>
+        <script src="../js/script.js"></script>
+       
+
+        <!-- Crystal.js -->
+        <script src="../js/crystal.js"></script>
+
+        <!-- Google Analytics -->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-46434731-3', 'auto');
+          ga('send', 'pageview');
+        </script>
+
+
+  </body>
+</html>

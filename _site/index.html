@@ -16,6 +16,10 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css" />
+    
+    <!-- QUnit
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/qunit/1.16.0/qunit.min.css" rel="stylesheet" type="text/css">
+    -->
 
     <!-- Ah, the favicon.
     ================================================== -->
@@ -26,7 +30,7 @@
     ============================== -->
     <meta property="og:title" content="Crystal.js"/>
     <meta property="og:site_name" content=" - Crystal.js"/>
-    <meta property="og:url" content=" - http://cojomojo.github.io/crystal.js/"/>
+    <meta property="og:url" content=" - http://cojomojo.github.io/Crystal.js/"/>
     <meta property="og:description" content="Pure Javascript Inline Form Validation"/>
     <meta property="og:image" content=""/>
     <meta name="twitter:card" content="summary">
@@ -40,151 +44,229 @@
     <script src="bower_components/modernizr/modernizr.js"></script>
   </head>
   <body>
-
-<div class="off-canvas-wrap" data-offcanvas>
-  <div class="inner-wrap"> 
-    <!-- Add header and nav here  -->
-    
-        <!--[if lt IE 8]>
-            <div data-alert class="alert-box alert radius" class="browsehappy">Please <a href="http://browsehappy.com/">upgrade your browser</a>. <a href="#" class="close">&times;</a></div>
-        <![endif]-->
-
-    <header id="header" class="row">
-
-        <div class="small-12 columns">
-            <section class="right show-for-medium-up mam">
-                <ul class="inline-list">
-                    <!-- <li><a href="http://cojomojo.github.io/crystal.js/">Home</a></li> -->
-<li><iframe src="http://ghbtns.com/github-btn.html?user=cojomojo&repo=crystal.js&type=watch&count=true&size=large"
-	allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe></li>
-<li><iframe src="http://ghbtns.com/github-btn.html?user=cojomojo&repo=crystal.js&type=fork&size=large"
-  allowtransparency="true" frameborder="0" scrolling="0" width="100" height="30"></iframe></li>
-<li><iframe src="http://ghbtns.com/github-btn.html?user=cojomojo&type=follow&size=large"
-	allowtransparency="true" frameborder="0" scrolling="0" width="180" height="30"></iframe></li>
-                </ul>
-            </section>
-
-            <section class="right show-for-small">
-                <ul class="inline-list mam">
-                <li>
-                    <a class="right-off-canvas-toggle"><i class="fa fa-bars fa-lg">
-                    </i></a>
-                </li>
-                </ul>
-            </section>
-
-            <h1><a href="http://cojomojo.github.io/crystal.js/">cojomojo</a></h1>
-
-        </div>
-    </header>
-
-        <!-- Off Canvas Menu -->
-        <aside class="right-off-canvas-menu">
-            <!-- navigation list goes here -->
-            <ul class="off-canvas-list">
-               <!-- <li><a href="http://cojomojo.github.io/crystal.js/">Home</a></li> -->
-<li><iframe src="http://ghbtns.com/github-btn.html?user=cojomojo&repo=crystal.js&type=watch&count=true&size=large"
-	allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe></li>
-<li><iframe src="http://ghbtns.com/github-btn.html?user=cojomojo&repo=crystal.js&type=fork&size=large"
-  allowtransparency="true" frameborder="0" scrolling="0" width="100" height="30"></iframe></li>
-<li><iframe src="http://ghbtns.com/github-btn.html?user=cojomojo&type=follow&size=large"
-	allowtransparency="true" frameborder="0" scrolling="0" width="180" height="30"></iframe></li>
-            </ul>
-        </aside>
+    <a id="top"></a>
 
 
-        <div class="row">
-          <section role="main">
+    <div class="off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap"> 
+        <!-- Add header and nav here  -->
+        
+            <!--[if lt IE 8]>
+                <div data-alert class="alert-box alert radius" class="browsehappy">Please <a href="http://browsehappy.com/">upgrade your browser</a>. <a href="#" class="close">&times;</a></div>
+            <![endif]-->
+
+        <header id="header" class="row">
+
             <div class="small-12 columns">
-        
-              <h1 class="mvl"><a href="https://github.com/cojomojo/crystal.js">Crystal.js</a>, pure Javascript inline form validation.</h1>
+                <section class="right show-for-medium-up mam">
+                    <ul class="inline-list">
+                        <li><a href="http://cojomojo.github.io/Crystal.js/">Home</a></li>
+<li><a href="/#why">Why</a></li>
+<li><a href="/#updates">What's New</a></li>
+<li><a href="/tutorial">Tutorial</a></li>
+<li><a href="https://github.com/cojomojo/crystal.js/wiki">Wiki</a></li>
+<li><a href="https://github.com/cojomojo/crystal.js">Download On GitHub</a></li>
 
-<div class="large-12 columns demo">
-	<form action="" id="demo1">
-		<div class="row">
-			<div class="large-6 small-12 columns">
-				<label>Name</label>
-				<input id="crystal-someName" type="text" />
-			</div>
-			<div class="large-6 small-12 columns">
-				<label>Email</label>
-				<input id="crystal-email" type="text" />
-			</div>
-		</div>
-		<div class="row">
-			<div class="large-6 small-12 columns">
-				<label>Company</label>
-				<input type="text" />
-			</div>
-			<div class="large-6 small-12 columns">
-				<label>Phone</label>
-				<input type="text" />
-			</div>
-		</div>
-		<div class="row">
-			<div class="large-12 columns">
-				<label>Message</label>
-				<textarea class="message" type="text" id="crystal-message"></textarea>
-			</div>
-		</div>
-		<div class="row">
-			<div class="large-12 columns"><input type="submit" class="submit button" /></div>
-		</div>
-	</form>
-</div>
- 
-           
+
+<!-- <li><iframe src="http://ghbtns.com/github-btn.html?user=cojomojo&repo=crystal.js&type=watch&count=true&size=large"
+	allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe></li>
+<li><iframe src="http://ghbtns.com/github-btn.html?user=cojomojo&repo=crystal.js&type=fork&size=large"
+  allowtransparency="true" frameborder="0" scrolling="0" width="100" height="30"></iframe></li>
+<li><iframe src="http://ghbtns.com/github-btn.html?user=cojomojo&type=follow&size=large"
+	allowtransparency="true" frameborder="0" scrolling="0" width="180" height="30"></iframe></li> -->
+                    </ul>
+                </section>
+
+                <section class="right show-for-small">
+                    <ul class="inline-list mam">
+                    <li>
+                        <a class="right-off-canvas-toggle"><i class="fa fa-bars fa-lg">
+                        </i></a>
+                    </li>
+                    </ul>
+                </section>
+
+                <h1><a target="_blank" href="https://github.com/cojomojo">cojomojo</a></h1>
+
             </div>
-          </section>
+        </header>
+
+            <!-- Off Canvas Menu -->
+            <aside class="right-off-canvas-menu">
+                <!-- navigation list goes here -->
+                <ul class="off-canvas-list">
+                   <li><a href="http://cojomojo.github.io/Crystal.js/">Home</a></li>
+<li><a href="/#why">Why</a></li>
+<li><a href="/#updates">What's New</a></li>
+<li><a href="/tutorial">Tutorial</a></li>
+<li><a href="https://github.com/cojomojo/crystal.js/wiki">Wiki</a></li>
+<li><a href="https://github.com/cojomojo/crystal.js">Download On GitHub</a></li>
+
+
+<!-- <li><iframe src="http://ghbtns.com/github-btn.html?user=cojomojo&repo=crystal.js&type=watch&count=true&size=large"
+	allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe></li>
+<li><iframe src="http://ghbtns.com/github-btn.html?user=cojomojo&repo=crystal.js&type=fork&size=large"
+  allowtransparency="true" frameborder="0" scrolling="0" width="100" height="30"></iframe></li>
+<li><iframe src="http://ghbtns.com/github-btn.html?user=cojomojo&type=follow&size=large"
+	allowtransparency="true" frameborder="0" scrolling="0" width="180" height="30"></iframe></li> -->
+                </ul>
+            </aside>
+
+            <!-- QUnit -->
+            <div id="qunit"></div>
+
+            <!-- Begin Content -->
+            <p><section class="demo1">
+    <div class="row" id="demo1">
+        <div class="large-12 columns">
+            <h1 class="mvl"><a target="_blank" href="https://github.com/cojomojo/crystal.js">Crystal.js</a>, pure Javascript inline form validation.</h1>
+            <h4 class="center"><i>Fill out the form and see the awesome!</i></h4>
+            <div id="sent" class="alert-box success radius" data-alert="">Message Sent.</div>
+            <div id="not-valid" class="alert-box alert radius" data-alert="">Invalid field input.</div>
+            <form action="" id="demo1-form">
+                <div class="row">
+                    <div class="large-6 small-12 columns">
+                        <label>Name</label>
+                        <input data-crystal="name" type="text" id="name">
+                    </div>
+                    <div class="large-6 small-12 columns">
+                        <label>Email</label>
+                        <input data-crystal="email" type="text">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-6 small-12 columns">
+                        <label>Company</label>
+                        <input type="text">
+                    </div>
+                    <div class="large-6 small-12 columns">
+                        <label>Phone</label>
+                        <input type="text">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label>Message</label>
+                        <textarea class="message" type="text" data-crystal="message"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-12 columns"><input type="submit" class="submit button"></div>
+                </div>
+            </form>
         </div>
-        
-
-        <footer class="site-footer row" role="contentinfo">
-        <hr/>
-          <div class="large-12 columns">
-            <p class="quiet copyright right"> <a href="https://twitter.com/functioncreate">
-                <i class="fa fa-twitter">
-                </i>
-             @functioncreate</a>, <a href="https://github.com/cojomojo/">
-                <i class="fa fa-github">
-                </i>
-             @cojomojo</a> 2014.</p>
-          </div>
-        </footer>
-
-
-      <!-- close the off-canvas menu -->
-      <a class="exit-off-canvas"></a>
-
-      </div>
     </div>
+</section>
+<section class="why">
+    <div class="row">
+        <a id="why"></a>
+        <h2>Why</h2>
+        <p class="explain">
+            Basic HTML forms are ugly, and quite frankly, are hated by users. However, forms are important. They are a key point of interaction between users, and you. Heck, forms may even be the entire point of your web site (well succesfully making conversions to be specific). Therefore, web designers must creatively turn ugly, hated forms, into beautiful, user-friendly, forms in order to increase conversion rates. One great way of doing this is inline form validation. <i>Users love seeing feedback as they fill out a form.</i> Crystal.js aims to make inline form validation easier to implement.
+        </p>
+    </div>
+</section>
+<section class="updates">
+    <a id="updates"></a>
+    <div class="row">
+        <h2> Now including...</h2>
+        <div id="multi-form-support">
+            <h4>Multiple form support!</h4>
+            <p> 
+                The latest and greatest version of Crystal.js includes support for multiple forms on a single page.
+            </p>
+            <form action="" id="demo2">
+                <p> My name is <input class="inline" data-crystal="name"> and I am contacting you about <input class="inline" data-crystal="message">.
+                The best email to contact me is <input class="inline" data-crystal="email">.
+                </p>
+            </form>
+        </div>
+        <div id="event-emitter">
+            <h4> Event emitter! </h4>
+            <p>
+                Crystal.js no longer handles submitting of forms, but instead uses an event emitter, to indicate if all field of a form are valid or invalid when submit has been clicked. 
+            </p>
+        </div>
+    </div>
+</section>
+<section class="future">
+    <a id="future"></a>
+    <div class="row">
+        <h2> Future Features</h2>
+        <div class="database-interactions">
+            <h4> Database Interactions</h4>
+            <p> In the future Crystal.js will have support for interacting with databases asynchronously. This will allow for validation rules that can check against data from a database. 
+            </p>
+        </div>
+    </div>
+</section>
+<section class="docs">
+    <a id="docs"></a>
+    <div class="row">
+        <div class="docs large-12 columns">
+            <a href="tutorial" class="button large-6 columns full-width">Tutorial</a>
+            <a href="https://github.com/cojomojo/crystal.js/wiki" class="button large-6 columns full-width">Wiki/Detailed Docs</a>
+            <a href="https://github.com/cojomojo/crystal.js/" class="button large-6 columns full-width">Download on GitHub</a>
+        </div>
+</section></p>
+               
+            
+
+            <footer class="site-footer row" role="contentinfo">
+            <hr/>
+              <div class="large-12 columns">
+                <a href="#top">To The Top</a>
+                <p class="quiet copyright right"> <a href="https://twitter.com/functioncreate">
+                    <i class="fa fa-twitter">
+                    </i>
+                 @functioncreate</a>, <a href="https://github.com/cojomojo/">
+                    <i class="fa fa-github">
+                    </i>
+                 @cojomojo</a> 2014.</p>
+              </div>
+            </footer>
 
 
-    <!-- Loading JavaScripts
-    ================================================== -->
-    <!-- Zepto (http://zeptojs.com/) is great, but I am sticking with jQuery. Sorry! -->
+          <!-- close the off-canvas menu -->
+          <a class="exit-off-canvas"></a>
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="bower_components/jquery/jquery.js"><\/script>')</script>
-    <script src="js/plugins.js"></script>
-    <script src="bower_components/foundation/js/foundation.min.js"></script>
-    <script src="js/script.js"></script>
+          </div>
+        </div>
 
-    <!-- Crystal.js -->
-    <script type='text/javascript', src='http://form-serialize.googlecode.com/svn/trunk/serialize-0.2.min.js'></script>
-    <script src="js/crystal.js"></script>
-    <script src="js/crystal-common.js"></script>
 
-    <!-- Google Analytics -->
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', '', 'auto');
-      ga('send', 'pageview');
-    </script>
+        <!-- Loading JavaScripts
+        ================================================== -->
+        <!-- Zepto (http://zeptojs.com/) is great, but I am sticking with jQuery. Sorry! -->
 
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="bower_components/jquery/jquery.js"><\/script>')</script>
+        <script src="bower_components/underscore/underscore-min.js"></script>
+        <script src="bower_components/backbone/backbone.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="bower_components/foundation/js/foundation.min.js"></script>
+        <script src="js/script.js"></script>
+        <script src="js/rainbow-custom.min.js"></script>
+
+        
+        <!-- QUnit
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qunit/1.16.0/qunit.min.js"></script>
+        <script src="js/crystaltest.js"></script>
+        -->
+        
+        
+        <!-- Crystal.js -->
+        <script src="js/crystal.js"></script>
+
+        <!-- Google Analytics -->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-46434731-3', 'auto');
+          ga('send', 'pageview');
+        </script>
+        
 
   </body>
 </html>

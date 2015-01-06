@@ -35,7 +35,7 @@ $base-line-height: 180%;
 // $include-html-block-grid-classes: $include-html-classes; 
 // $include-xl-html-grid-classes: false;
 
-$row-width: rem-calc(1000);
+$row-width: rem-calc(1150);
 $total-columns: 12;
 
 // Global
@@ -61,10 +61,10 @@ $font-smoothing: antialiased;
 
 // We use these as default colors throughout
 $primary-color: #5CB3FF;
-$secondary-color: #e7e7e7;
-$alert-color: #f04124;
+$secondary-color: #1a8522;
+$alert-color: #EF0636;
 
-$success-color: #43AC6A;
+$success-color: #008040;
 $warning-color: #f15b22;
 $info-color: #a0d3e8;
 
