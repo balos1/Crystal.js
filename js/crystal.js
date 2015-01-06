@@ -15,8 +15,6 @@
 	 * @param {HTML Element} The parent DOM element of all form elements that will be crystallized
 	 */
 	function Crystal(devMode, el) {
-		var _init;
-
 		// if(devMode)  crystalTest();
 
 		el = (typeof el === "undefined") ? document : el;
@@ -24,13 +22,15 @@
 		this.rawCrystalForms = [].slice.call(el.getElementsByTagName('form'));
 		this.crystallized = [];
 
-		_init = (function() {
+		this.init = function() {
 			for(var i = 0; i < this.rawCrystalForms.length; i++) {
 				this.rawCrystalForms[i].dataset.crystalId = i+1;
 
 				this.crystallized.push(new CrystalForm(this.rawCrystalForms[i]));
 			}
-		}.bind(this))();
+		};
+
+		this.init();
 	}
 
 	Crystal.prototype = {
@@ -77,8 +77,6 @@
 
 			this.rawCrystalForms.push(formEl);
 			last = this.rawCrystalForms.length - 1;
-
-			console.log(this.rawCrystalForms[last]);
 
 			this.crystallized.push(new CrystalForm(this.rawCrystalForms[last]));
 
@@ -138,17 +136,21 @@
 		 */
 		setCrystalFieldConfig: function(id, attribute, config) {
 			if(typeof id == "number") {
-				this.getCrystalField(id, attribute).config = CrystalField.augment({}, this.getCrystalField(id, attribute).defaults, config || {});
+				this.getCrystalField(id, attribute).config = 
+					CrystalField.augment({}, this.getCrystalField(id, attribute).defaults, config || {});
+				this.getCrystalField(id, attribute).init();
 			} 
 			else if(id == "all") {
 				for(var i = 0; i < this.crystallized.length; i++) {
 					this.crystallized[i].crystallizedFields[attribute].config = 
 						CrystalField.augment({}, this.crystallized[i].crystallizedFields[attribute].defaults, config || {});
+					this.crystallized[i].crystallizedFields[attribute].init();
 				}
 			} else {
 				for(var i = 0; i < id.length; i++) {
 					this.getCrystalField(id[i], attribute).config = 
 						CrystalField.augment({}, this.getCrystalField(id[i], attribute).defaults, config || {});
+					this.getCrystalField(id[i], attribute).init();
 				}
 			}
 		},
@@ -170,13 +172,11 @@
 	 * @param {object} [rawFields] an object of DOM objects (input/textarea elements) to be used as "fields"
 	 */
 	function CrystalForm(formEl) { 
-		var _init;
-
 		this.rawSelf = formEl;
 		this.rawFields = [].slice.call(this.rawSelf.querySelectorAll("input, textarea"));
 		this.crystallizedFields = {};
 
-		_init = (function() {
+		this.init = function() {
 			for(var i = 0; i < this.rawFields.length; i++) {
 				if(this.rawFields[i].dataset.crystal != undefined) {
 					var attribute = this.rawFields[i].dataset.crystal;
@@ -187,8 +187,10 @@
 				}
 			}
 
-			this.watch();
-		}.bind(this))();
+			this.rawSelf.addEventListener('submit', this, false);
+		};
+
+		this.init();
 	}; // end CrystalForm
 
 
@@ -212,13 +214,6 @@
 				e.preventDefault();
 				this.ee.emit("form-" + this.rawSelf.dataset.crystalId + '-invalid', this.rawSelf)
 				}
-		},
-
-		/**
-		 * Watches for submit event, then checks if all fields are valid.
-		 */
-		watch: function() {
-			this.rawSelf.addEventListener('submit', this, false);
 		},
 
 		/**
@@ -278,7 +273,7 @@
 	 * @param {input|blur} [trigger] Event that determines when fields are checked for validity. Defaults to "input".
 	 */
 	function CrystalField(fieldEl, fieldConfig) {
-		var _init;
+		var attached = false;
 
 		this.defaults = {
 			attribute: fieldEl.dataset.crystal,
@@ -291,7 +286,7 @@
 
 		this.config = CrystalField.augment({}, this.defaults, fieldConfig || {});
 
-		_init = (function () {
+		this.init = function () {
 			// make sure trigger option is legit
 			if(this.config.trigger !== "input" && this.config.trigger !== "blur") {
 				this.config.trigger = this.defaults.trigger;
@@ -299,8 +294,12 @@
 
 			this.active();
 
+			if(attached) this.config.domOBJ.removeEventListener(this.defaults.trigger, this, false);
 			this.config.domOBJ.addEventListener(this.config.trigger, this, false);
-		}.bind(this))();
+			attached = true;
+		};
+
+		this.init();
 	} // end CrystalField
 
 	CrystalField.prototype = {
@@ -487,11 +486,11 @@
 var crystal = new Crystal();
 
 crystal.setCrystalFieldConfig("all", "name", {
-	regex: /^(?!\s*$).+/
+	regex: /^(?!\s*$).+/, 
 });
 crystal.setCrystalFieldConfig("all", "email", {
 	//regex: /^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*$/
-	regex: /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/
+	regex: /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/,
 });
 crystal.setCrystalFieldConfig("all", "message", {
 	regex: /^(?!\s*$).+/
