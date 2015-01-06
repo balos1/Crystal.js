@@ -76,7 +76,7 @@ As you can see, each form emits it's own event. The events are dynamically named
 Crystal.js can be very powerful. Check out the [GitHub Wiki](https://github.com/cojomojo/crystal.js/wiki) for the complete and in depth documentation.
 
 ## Contributing
-The goal of crystal.js is to be a lightweight boilerplate for simple inline form validation. Thus, when contributing keep this in mind. Fork, and send a pull request. All contributors will be added to a list of contributors.
+The goal of Crystal.js is to be a boilerplate for awesome inline form validation. This should be kept in mind when contributing. Pull the dev branch, contribute, and submit a pull request!
 
 ## License
 MIT
