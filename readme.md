@@ -1,5 +1,8 @@
 Crystal.js
 ---
+
+This project is no longer maintained.
+
 ##### Version v0.2.0
 ##### See it in action at http://cojomojo.github.io/Crystal.js/
 
